@@ -9,7 +9,7 @@
         <relationship name="localization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Localization" inverseName="annotation" inverseEntity="Localization" syncable="YES"/>
         <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="annotation" inverseEntity="Photo" syncable="YES"/>
     </entity>
-    <entity name="Author" representedClassName="HacerBookSwift3.Author" syncable="YES">
+    <entity name="Author" representedClassName=".Author" syncable="YES">
         <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="book" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="author" inverseEntity="Book" syncable="YES"/>
     </entity>
