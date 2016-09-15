@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		CF309DCE1D8A8E7D0071B086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DCD1D8A8E7D0071B086 /* AppDelegate.swift */; };
-		CF309DD01D8A8E7D0071B086 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DCF1D8A8E7D0071B086 /* ViewController.swift */; };
 		CF309DD51D8A8E7D0071B086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF309DD41D8A8E7D0071B086 /* Assets.xcassets */; };
 		CF309DE31D8A8E7D0071B086 /* HacerBookSwift3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DE21D8A8E7D0071B086 /* HacerBookSwift3Tests.swift */; };
+		CF309DEE1D8A8F830071B086 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DED1D8A8F830071B086 /* CoreDataStack.swift */; };
+		CF309DEF1D8A8F830071B086 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DED1D8A8F830071B086 /* CoreDataStack.swift */; };
+		CF309DF21D8A8FA30071B086 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DF11D8A8FA30071B086 /* CoreDataTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,12 +28,13 @@
 /* Begin PBXFileReference section */
 		CF309DCA1D8A8E7D0071B086 /* HacerBookSwift3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HacerBookSwift3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF309DCD1D8A8E7D0071B086 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF309DCF1D8A8E7D0071B086 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CF309DD41D8A8E7D0071B086 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF309DD91D8A8E7D0071B086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF309DDE1D8A8E7D0071B086 /* HacerBookSwift3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HacerBookSwift3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF309DE21D8A8E7D0071B086 /* HacerBookSwift3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HacerBookSwift3Tests.swift; sourceTree = "<group>"; };
 		CF309DE41D8A8E7D0071B086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF309DED1D8A8F830071B086 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		CF309DF11D8A8FA30071B086 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +76,9 @@
 		CF309DCC1D8A8E7D0071B086 /* HacerBookSwift3 */ = {
 			isa = PBXGroup;
 			children = (
+				CF309DF41D8A8FB10071B086 /* Controllers */,
+				CF309DF31D8A8FA90071B086 /* CoreData */,
 				CF309DCD1D8A8E7D0071B086 /* AppDelegate.swift */,
-				CF309DCF1D8A8E7D0071B086 /* ViewController.swift */,
 				CF309DD41D8A8E7D0071B086 /* Assets.xcassets */,
 				CF309DD91D8A8E7D0071B086 /* Info.plist */,
 			);
@@ -88,6 +92,22 @@
 				CF309DE41D8A8E7D0071B086 /* Info.plist */,
 			);
 			path = HacerBookSwift3Tests;
+			sourceTree = "<group>";
+		};
+		CF309DF31D8A8FA90071B086 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CF309DED1D8A8F830071B086 /* CoreDataStack.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		CF309DF41D8A8FB10071B086 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CF309DF11D8A8FA30071B086 /* CoreDataTableViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,7 +211,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF309DD01D8A8E7D0071B086 /* ViewController.swift in Sources */,
+				CF309DEE1D8A8F830071B086 /* CoreDataStack.swift in Sources */,
+				CF309DF21D8A8FA30071B086 /* CoreDataTableViewController.swift in Sources */,
 				CF309DCE1D8A8E7D0071B086 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF309DE31D8A8E7D0071B086 /* HacerBookSwift3Tests.swift in Sources */,
+				CF309DEF1D8A8F830071B086 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
