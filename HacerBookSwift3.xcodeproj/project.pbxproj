@@ -51,6 +51,7 @@
 		CF309E2C1D8AA6DF0071B086 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309E091D8AA6DE0071B086 /* Book+CoreDataClass.swift */; };
 		CF309E2D1D8AA6DF0071B086 /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309E0A1D8AA6DE0071B086 /* Book+CoreDataProperties.swift */; };
 		CF309E2E1D8AA6DF0071B086 /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309E0A1D8AA6DE0071B086 /* Book+CoreDataProperties.swift */; };
+		CFEF8DD41D8AF70B00286442 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEF8DD31D8AF70B00286442 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		CF309E081D8AA6DE0071B086 /* Author+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Author+CoreDataProperties.swift"; path = "../Author+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CF309E091D8AA6DE0071B086 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataClass.swift"; path = "../Book+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CF309E0A1D8AA6DE0071B086 /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataProperties.swift"; path = "../Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CFEF8DD31D8AF70B00286442 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		CF309DC11D8A8E7D0071B086 = {
 			isa = PBXGroup;
 			children = (
+				CFEF8DD31D8AF70B00286442 /* Default-568h@2x.png */,
 				CF309DCC1D8A8E7D0071B086 /* HacerBookSwift3 */,
 				CF309DE11D8A8E7D0071B086 /* HacerBookSwift3Tests */,
 				CF309DCB1D8A8E7D0071B086 /* Products */,
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF309DD51D8A8E7D0071B086 /* Assets.xcassets in Resources */,
+				CFEF8DD41D8AF70B00286442 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +531,7 @@
 				CF309DE91D8A8E7D0071B086 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF309DEA1D8A8E7D0071B086 /* Build configuration list for PBXNativeTarget "HacerBookSwift3Tests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +540,7 @@
 				CF309DEC1D8A8E7D0071B086 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

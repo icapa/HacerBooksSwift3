@@ -13,9 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let model = CoreDataStack(modelName: "Model", inMemory: true)!
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        /*
+        _ = Author(author: "prueba", inContext: (model.context))
+        _ = Author(author: "JUANITO", inContext: (model.context))
+        _ = Author(author: "prueba", inContext: (model.context))
+        
+        */
         
         
         
