@@ -7,30 +7,39 @@
 //
 
 import XCTest
-@testable import HacerBookSwift3
+//@testable import HacerBookSwift3
 
 class HacerBookSwift3Tests: XCTestCase {
     
+    var model : CoreDataStack?
+    
+    
+    
     override func setUp() {
+        model = CoreDataStack(modelName: "Model", inMemory: true)!
+        do{
+            try model?.dropAllData()
+        }
+        catch{
+            print("Test Setup: Error deleting data")
+        }
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testInsertAuthor(){
+        let author = Author(author: "prueba", inContext: model!.context)
+        XCTAssert(author.name=="prueba")
+        model?.save()
+        
+        XCTAssert(author.exists("prueba")==true,"Prueba must exist!")
+        XCTAssert(author.exists("pepito")==false,"Pepito should not exist!")
+        
+        
+        
+        
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }
