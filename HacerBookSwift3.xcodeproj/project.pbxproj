@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		CF309DCE1D8A8E7D0071B086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DCD1D8A8E7D0071B086 /* AppDelegate.swift */; };
 		CF309DD01D8A8E7D0071B086 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DCF1D8A8E7D0071B086 /* ViewController.swift */; };
-		CF309DD31D8A8E7D0071B086 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF309DD11D8A8E7D0071B086 /* Main.storyboard */; };
 		CF309DD51D8A8E7D0071B086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF309DD41D8A8E7D0071B086 /* Assets.xcassets */; };
-		CF309DD81D8A8E7D0071B086 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF309DD61D8A8E7D0071B086 /* LaunchScreen.storyboard */; };
 		CF309DE31D8A8E7D0071B086 /* HacerBookSwift3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DE21D8A8E7D0071B086 /* HacerBookSwift3Tests.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,9 +27,7 @@
 		CF309DCA1D8A8E7D0071B086 /* HacerBookSwift3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HacerBookSwift3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF309DCD1D8A8E7D0071B086 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF309DCF1D8A8E7D0071B086 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CF309DD21D8A8E7D0071B086 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF309DD41D8A8E7D0071B086 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CF309DD71D8A8E7D0071B086 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF309DD91D8A8E7D0071B086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF309DDE1D8A8E7D0071B086 /* HacerBookSwift3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HacerBookSwift3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF309DE21D8A8E7D0071B086 /* HacerBookSwift3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HacerBookSwift3Tests.swift; sourceTree = "<group>"; };
@@ -79,9 +75,7 @@
 			children = (
 				CF309DCD1D8A8E7D0071B086 /* AppDelegate.swift */,
 				CF309DCF1D8A8E7D0071B086 /* ViewController.swift */,
-				CF309DD11D8A8E7D0071B086 /* Main.storyboard */,
 				CF309DD41D8A8E7D0071B086 /* Assets.xcassets */,
-				CF309DD61D8A8E7D0071B086 /* LaunchScreen.storyboard */,
 				CF309DD91D8A8E7D0071B086 /* Info.plist */,
 			);
 			path = HacerBookSwift3;
@@ -179,9 +173,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF309DD81D8A8E7D0071B086 /* LaunchScreen.storyboard in Resources */,
 				CF309DD51D8A8E7D0071B086 /* Assets.xcassets in Resources */,
-				CF309DD31D8A8E7D0071B086 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,25 +213,6 @@
 			targetProxy = CF309DDF1D8A8E7D0071B086 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		CF309DD11D8A8E7D0071B086 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CF309DD21D8A8E7D0071B086 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		CF309DD61D8A8E7D0071B086 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CF309DD71D8A8E7D0071B086 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CF309DE51D8A8E7D0071B086 /* Debug */ = {
