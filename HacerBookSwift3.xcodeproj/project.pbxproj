@@ -13,6 +13,8 @@
 		CF309DEE1D8A8F830071B086 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DED1D8A8F830071B086 /* CoreDataStack.swift */; };
 		CF309DEF1D8A8F830071B086 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DED1D8A8F830071B086 /* CoreDataStack.swift */; };
 		CF309DF21D8A8FA30071B086 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DF11D8A8FA30071B086 /* CoreDataTableViewController.swift */; };
+		CF309DF71D8A92430071B086 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF309DF51D8A92430071B086 /* Model.xcdatamodeld */; };
+		CF309DF81D8A92430071B086 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF309DF51D8A92430071B086 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,7 @@
 		CF309DE41D8A8E7D0071B086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF309DED1D8A8F830071B086 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		CF309DF11D8A8FA30071B086 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
+		CF309DF61D8A92430071B086 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				CF309DED1D8A8F830071B086 /* CoreDataStack.swift */,
+				CF309DF51D8A92430071B086 /* Model.xcdatamodeld */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -214,6 +218,7 @@
 				CF309DEE1D8A8F830071B086 /* CoreDataStack.swift in Sources */,
 				CF309DF21D8A8FA30071B086 /* CoreDataTableViewController.swift in Sources */,
 				CF309DCE1D8A8E7D0071B086 /* AppDelegate.swift in Sources */,
+				CF309DF71D8A92430071B086 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +228,7 @@
 			files = (
 				CF309DE31D8A8E7D0071B086 /* HacerBookSwift3Tests.swift in Sources */,
 				CF309DEF1D8A8F830071B086 /* CoreDataStack.swift in Sources */,
+				CF309DF81D8A92430071B086 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +415,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CF309DF51D8A92430071B086 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CF309DF61D8A92430071B086 /* Model.xcdatamodel */,
+			);
+			currentVersion = CF309DF61D8A92430071B086 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CF309DC21D8A8E7D0071B086 /* Project object */;
 }
