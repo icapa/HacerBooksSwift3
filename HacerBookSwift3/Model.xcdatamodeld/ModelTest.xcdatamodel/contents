@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="15G31" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Annotation" representedClassName=".Annotation" syncable="YES">
+    <entity name="Annotation" representedClassName="HacerBookSwift3Tests.Annotation" syncable="YES">
         <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO" indexed="YES" syncable="YES"/>
         <attribute name="modificationDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="text" attributeType="String" syncable="YES"/>
@@ -13,7 +13,7 @@
         <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="book" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="author" inverseEntity="Book" syncable="YES"/>
     </entity>
-    <entity name="Book" representedClassName=".Book" syncable="YES">
+    <entity name="Book" representedClassName="HacerBookSwift3Tests.Book" syncable="YES">
         <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFavorite" attributeType="Boolean" usesScalarValueType="YES" indexed="YES" syncable="YES"/>
         <attribute name="pdfUrl" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,30 +24,30 @@
         <relationship name="cover" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cover" inverseName="book" inverseEntity="Cover" syncable="YES"/>
         <relationship name="pdf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pdf" inverseName="book" inverseEntity="Pdf" syncable="YES"/>
     </entity>
-    <entity name="BookTag" representedClassName=".BookTag" syncable="YES">
+    <entity name="BookTag" representedClassName="HacerBookSwift3Tests.BookTag" syncable="YES">
         <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="book" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="bookTag" inverseEntity="Book" syncable="YES"/>
         <relationship name="tag" maxCount="1" deletionRule="Cascade" destinationEntity="Tag" inverseName="bookTag" inverseEntity="Tag" syncable="YES"/>
     </entity>
-    <entity name="Cover" representedClassName=".Cover" syncable="YES">
+    <entity name="Cover" representedClassName="HacerBookSwift3Tests.Cover" syncable="YES">
         <attribute name="photoData" attributeType="Binary" syncable="YES"/>
         <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="cover" inverseEntity="Book" syncable="YES"/>
     </entity>
-    <entity name="Localization" representedClassName=".Localization" syncable="YES">
+    <entity name="Localization" representedClassName="HacerBookSwift3Tests.Localization" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" indexed="YES" syncable="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" indexed="YES" syncable="YES"/>
         <relationship name="annotation" toMany="YES" deletionRule="Cascade" destinationEntity="Annotation" inverseName="localization" inverseEntity="Annotation" syncable="YES"/>
     </entity>
-    <entity name="Pdf" representedClassName=".Pdf" syncable="YES">
+    <entity name="Pdf" representedClassName="HacerBookSwift3Tests.Pdf" syncable="YES">
         <attribute name="pdfData" attributeType="Binary" syncable="YES"/>
         <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="pdf" inverseEntity="Book" syncable="YES"/>
     </entity>
-    <entity name="Photo" representedClassName=".Photo" syncable="YES">
+    <entity name="Photo" representedClassName="HacerBookSwift3Tests.Photo" syncable="YES">
         <attribute name="photoData" attributeType="Binary" syncable="YES"/>
         <relationship name="annotation" maxCount="1" deletionRule="Cascade" destinationEntity="Annotation" inverseName="photo" inverseEntity="Annotation" syncable="YES"/>
     </entity>
-    <entity name="Tag" representedClassName=".Tag" syncable="YES">
+    <entity name="Tag" representedClassName="HacerBookSwift3Tests.Tag" syncable="YES">
         <attribute name="proxyForSorting" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="tagName" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="bookTag" toMany="YES" deletionRule="Nullify" destinationEntity="BookTag" inverseName="tag" inverseEntity="BookTag" syncable="YES"/>

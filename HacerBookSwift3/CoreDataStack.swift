@@ -10,6 +10,7 @@ import CoreData
 struct CoreDataStack {
     
     // MARK:  - Properties
+    
     fileprivate let model : NSManagedObjectModel
     fileprivate let coordinator : NSPersistentStoreCoordinator
     fileprivate let modelURL : URL
@@ -18,7 +19,10 @@ struct CoreDataStack {
     fileprivate let backgroundContext : NSManagedObjectContext
     let context : NSManagedObjectContext
     fileprivate var inMemory: Bool = false
+ 
     
+   
+
     
     
     // MARK:  - Initializers

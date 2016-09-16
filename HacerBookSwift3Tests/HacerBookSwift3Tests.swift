@@ -12,14 +12,14 @@ import XCTest
 let model = CoreDataStack(modelName: "Model", inMemory: true)!
 
 
+
 class HacerBookSwift3Tests: XCTestCase {
-    
-    
     
     
     override func setUp() {
         do{
             try model.dropAllData()
+            
         }
         catch{
             print("Test Setup: Error deleting data")
@@ -32,20 +32,17 @@ class HacerBookSwift3Tests: XCTestCase {
     }
     
     func testInsertAuthor(){
-        let author = Author(author: "prueba", inContext: (model.context))
-        let author3 = Author(author: "JUANITO", inContext: (model.context))
-        let author2 = Author(author: "prueba", inContext: (model.context))
+        _ = Author(author: "prueba", inContext: model.context)
+        _ = Author(author: "pepito", inContext: model.context)
+        _ = Author(author: "prueba", inContext: model.context)
 
-        //let _ = Author(author: "juanito", inContext: model!.context)
         
-        //model?.save()
         
-        XCTAssert(author.exists("prueba")==true,"Prueba must exist!")
-        //XCTAssert(author.exists("pepito")==false,"Pepito should not exist!")
-        XCTAssert(author3.exists("Prueba")==true,"Prueba must exist!")
-        XCTAssert(author2.exists("JuAnItO")==true,"Prueba must exist!")
-        
+        XCTAssert(Author.exists("prueba",inContext: model.context)==true,"Prueba must exist!")
+        XCTAssert(Author.exists("Juanito",inContext: model.context)==false,"Prueba must exist!")
+        XCTAssert(Author.exists("Prueba",inContext: model.context)==true,"Prueba must exist!")
         
         
     }
+    
 }
