@@ -33,6 +33,8 @@
 		CF309E281D8AA6DE0071B086 /* Author+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309E071D8AA6DE0071B086 /* Author+CoreDataClass.swift */; };
 		CF309E2B1D8AA6DF0071B086 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309E091D8AA6DE0071B086 /* Book+CoreDataClass.swift */; };
 		CF309E2C1D8AA6DF0071B086 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309E091D8AA6DE0071B086 /* Book+CoreDataClass.swift */; };
+		CFAFAC5F1D8CB3F40098D4AB /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAFAC5E1D8CB3F40098D4AB /* Tag+CoreDataProperties.swift */; };
+		CFAFAC601D8CB3F40098D4AB /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAFAC5E1D8CB3F40098D4AB /* Tag+CoreDataProperties.swift */; };
 		CFCCCE971D8C5A6C00681637 /* Author+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCCCE961D8C5A6C00681637 /* Author+CoreDataProperties.swift */; };
 		CFCCCE981D8C5A6C00681637 /* Author+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCCCE961D8C5A6C00681637 /* Author+CoreDataProperties.swift */; };
 		CFEF8DD41D8AF70B00286442 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEF8DD31D8AF70B00286442 /* Default-568h@2x.png */; };
@@ -68,8 +70,9 @@
 		CF309E051D8AA6DE0071B086 /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Tag+CoreDataClass.swift"; path = "../Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CF309E071D8AA6DE0071B086 /* Author+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Author+CoreDataClass.swift"; path = "../Author+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CF309E091D8AA6DE0071B086 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataClass.swift"; path = "../Book+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CFAFAC5E1D8CB3F40098D4AB /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CFCCCE5F1D8C49A300681637 /* ModelTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelTest.xcdatamodel; sourceTree = "<group>"; };
-		CFCCCE961D8C5A6C00681637 /* Author+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Author+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CFCCCE961D8C5A6C00681637 /* Author+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Author+CoreDataProperties.swift"; path = "../Author+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CFEF8DD31D8AF70B00286442 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +97,7 @@
 		CF309DC11D8A8E7D0071B086 = {
 			isa = PBXGroup;
 			children = (
-				CFCCCE961D8C5A6C00681637 /* Author+CoreDataProperties.swift */,
+				CFAFAC5E1D8CB3F40098D4AB /* Tag+CoreDataProperties.swift */,
 				CFEF8DD31D8AF70B00286442 /* Default-568h@2x.png */,
 				CF309DCC1D8A8E7D0071B086 /* HacerBookSwift3 */,
 				CF309DE11D8A8E7D0071B086 /* HacerBookSwift3Tests */,
@@ -154,6 +157,7 @@
 		CF309E321D8AB9DD0071B086 /* Properties */ = {
 			isa = PBXGroup;
 			children = (
+				CFCCCE961D8C5A6C00681637 /* Author+CoreDataProperties.swift */,
 			);
 			name = Properties;
 			sourceTree = "<group>";
@@ -287,6 +291,7 @@
 				CF309E1B1D8AA6DE0071B086 /* Localization+CoreDataClass.swift in Sources */,
 				CF309DF21D8A8FA30071B086 /* CoreDataTableViewController.swift in Sources */,
 				CF309E2B1D8AA6DF0071B086 /* Book+CoreDataClass.swift in Sources */,
+				CFAFAC5F1D8CB3F40098D4AB /* Tag+CoreDataProperties.swift in Sources */,
 				CF309DCE1D8A8E7D0071B086 /* AppDelegate.swift in Sources */,
 				CF309E271D8AA6DE0071B086 /* Author+CoreDataClass.swift in Sources */,
 				CF309DF71D8A92430071B086 /* Model.xcdatamodeld in Sources */,
@@ -301,6 +306,7 @@
 				CF309DE31D8A8E7D0071B086 /* HacerBookSwift3Tests.swift in Sources */,
 				CF309E241D8AA6DE0071B086 /* Tag+CoreDataClass.swift in Sources */,
 				CF309E141D8AA6DE0071B086 /* BookTag+CoreDataClass.swift in Sources */,
+				CFAFAC601D8CB3F40098D4AB /* Tag+CoreDataProperties.swift in Sources */,
 				CFCCCE981D8C5A6C00681637 /* Author+CoreDataProperties.swift in Sources */,
 				CF309E281D8AA6DE0071B086 /* Author+CoreDataClass.swift in Sources */,
 				CF309E181D8AA6DE0071B086 /* Annotation+CoreDataClass.swift in Sources */,

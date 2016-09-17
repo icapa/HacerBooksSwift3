@@ -47,7 +47,7 @@
         <attribute name="photoData" attributeType="Binary" syncable="YES"/>
         <relationship name="annotation" maxCount="1" deletionRule="Cascade" destinationEntity="Annotation" inverseName="photo" inverseEntity="Annotation" syncable="YES"/>
     </entity>
-    <entity name="Tag" representedClassName=".Tag" syncable="YES">
+    <entity name="Tag" representedClassName="HacerBookSwift3Tests.Tag" syncable="YES">
         <attribute name="proxyForSorting" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="tagName" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="bookTag" toMany="YES" deletionRule="Nullify" destinationEntity="BookTag" inverseName="tag" inverseEntity="BookTag" syncable="YES"/>
