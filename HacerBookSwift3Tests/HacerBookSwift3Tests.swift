@@ -66,9 +66,6 @@ class HacerBookSwift3Tests: XCTestCase {
         
         XCTAssertEqual(result.count,3,"Tag count should be 3")
         
-        
-        
-           
         let ns = NSFetchedResultsController(fetchRequest: fr,
                                             managedObjectContext: model.context,
                                             sectionNameKeyPath: nil, cacheName: nil)
@@ -79,14 +76,33 @@ class HacerBookSwift3Tests: XCTestCase {
         let p = ns.object(at: IndexPath(row: 2, section: 0)).realTagName
         
         XCTAssertEqual(f, "favorite","First tag should be favorite")
-       
-        
         XCTAssertEqual(c, "coredata","Second tag should be coredata")
         XCTAssertEqual(p, "programming","Third tag should be programming")
-
+    }
+    func testBookAndTags(){
+        // Quiero cargarme todos los datos
+        try! model.dropAllData()
+        
+        let tag1 = Tag(tag: "Favorite", inContext: model.context)
+        let tag2 = Tag(tag: "Programming", inContext: model.context)
+        let tag3 = Tag(tag: "CoreData",inContext: model.context)
+        
+        let pb = Book(title: "Programing in CoreData", inContext: model.context)
+        
+        // Se supone que el libro tiene los dos tags
+        
+        _ = BookTag(theBook: pb, theTag: tag1, inContext: model.context)
+        _ = BookTag(theBook: pb, theTag: tag2, inContext: model.context)
+        _ = BookTag(theBook: pb, theTag: tag3, inContext: model.context)
+        
+        // El proceso es hago un fetch de todos los tags
+        
+        // Dentro de BookTag busco los que tenga ese "tag" y me quedo con el libro
         
         
-
+        
+        
+        
     }
     
 }
