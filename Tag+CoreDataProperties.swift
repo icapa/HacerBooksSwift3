@@ -2,13 +2,13 @@
 //  Tag+CoreDataProperties.swift
 //  HacerBookSwift3
 //
-//  Created by Iván Cayón Palacio on 18/9/16.
+//  Created by Iván Cayón Palacio on 20/9/16.
 //  Copyright © 2016 KeepCoding. All rights reserved.
 //
 
 import Foundation
 import CoreData
-//import HacerBookSwift3Tests
+
 
 extension Tag {
 
@@ -16,7 +16,6 @@ extension Tag {
         return NSFetchRequest<Tag>(entityName: "Tag");
     }
 
-    @NSManaged public var proxyForSorting: String?
     @NSManaged public var tagName: String?
     @NSManaged public var bookTag: NSSet?
 

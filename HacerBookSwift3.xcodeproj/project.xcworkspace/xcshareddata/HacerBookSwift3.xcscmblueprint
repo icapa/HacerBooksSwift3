@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8BA6832CFAB6B3F03B9795F4E8672FC6007A4691",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E86DA2C7803475ECD3845558F84B5C6DD33B1CA4" : 9223372036854775807,
+    "8BA6832CFAB6B3F03B9795F4E8672FC6007A4691" : 9223372036854775807,
+    "05AD4FC3557AE302C8A8B75A2A95CFF9AA28D5C6" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DC91C486-4A7B-489D-820E-B8EB2CBD9287",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E86DA2C7803475ECD3845558F84B5C6DD33B1CA4" : "..\/..\/Fundamento_iOS\/practica\/HackerBooks",
+    "8BA6832CFAB6B3F03B9795F4E8672FC6007A4691" : "HacerBookSwift3\/",
+    "05AD4FC3557AE302C8A8B75A2A95CFF9AA28D5C6" : "..\/..\/Fundamento_iOS\/practica\/corregida\/hackerbookslite"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "HacerBookSwift3",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "HacerBookSwift3.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/agbo\/hackerbookslite",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "05AD4FC3557AE302C8A8B75A2A95CFF9AA28D5C6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/icapa\/HacerBooksSwift3.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8BA6832CFAB6B3F03B9795F4E8672FC6007A4691"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/icapa\/hackerbooks.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E86DA2C7803475ECD3845558F84B5C6DD33B1CA4"
+    }
+  ]
+}

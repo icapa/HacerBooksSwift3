@@ -7,23 +7,99 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    let model = CoreDataStack(modelName: "Model", inMemory: true)!
+    
+    
+    let model = CoreDataStack(modelName: "Model", inMemory: false)!
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        /*
-        _ = Author(author: "prueba", inContext: (model.context))
-        _ = Author(author: "JUANITO", inContext: (model.context))
-        _ = Author(author: "prueba", inContext: (model.context))
         
-        */
+        // For testing 
+        try! model.dropAllData()
+        
+        
+        
+        // JSON File is load in main queue, it's a small file
+        // it should be put also 
+        
+        do{
+            try downloadJSONifNeeded()
+        }catch{
+            fatalError("Data couldn't be load")
+        }
+        
+        // Process JSON File and fill CoreData, backgound
+        //if (isFirstLaunch()==true){
+        //    markFirstLaunch(to: false)
+            
+            do{
+                let jsonData = try loadJSONFile()
+                let jsonDicts = try JSONSerialization.jsonObject(with: jsonData as Data, options: .allowFragments) as? JSONArray
+                
+                for oneDict in jsonDicts!{
+                    do{
+                        let bookValues =  try decodeForCoreData(book: oneDict)
+                        let title = bookValues.4
+                        let authors = bookValues.0
+                        let imageUrl = bookValues.1
+                        let pdfUrl = bookValues.2
+                        let tags = bookValues.3
+                        
+                        // Add book to core data
+                        let oneBook = Book(title: title, imgUrl: imageUrl.absoluteString, pdfUrl: pdfUrl.absoluteString, inContext: model.context)
+                        // Add tags to core data
+                        for sTag in tags{
+                            var theTag : Tag?
+    
+                            theTag = Tag.tagForString(sTag, inContext: model.context)
+                            if (theTag == nil){
+                                theTag = Tag(tag: sTag, inContext: model.context)
+                            }
+                            // Add the relation between tags and books
+                            _ = BookTag(theBook: oneBook, theTag: theTag!, inContext: model.context)
+                        }
+                        for sAuthor in authors{
+                            let theAuthor = Author(author: sAuthor, inContext: model.context)
+                            theAuthor.addToBook(oneBook)
+                        }
+                        
+                    }
+                }
+            
+            }catch{
+                fatalError("Json File is not downloaded")
+            }
+            model.save()
+        //}
+        // Fetch request
+        
+        let fr = NSFetchRequest<Book>(entityName: Book.entityName)
+        fr.fetchBatchSize = 50
+        fr.sortDescriptors = [NSSortDescriptor(key: "title",ascending: true)]
+        
+        let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: model.context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        // Create viewController
+        
+        let nVC = BookTableViewController(fetchedResultsController: fc as! NSFetchedResultsController<NSFetchRequestResult>, style: .plain)
+        
+        
+        // Creamos el navegador
+        let navVC = UINavigationController(rootViewController: nVC)
+        
+        // La window
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navVC
+        window?.makeKeyAndVisible()
+        
+        
         
         
         
@@ -53,6 +129,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    
+    
 
 }
 

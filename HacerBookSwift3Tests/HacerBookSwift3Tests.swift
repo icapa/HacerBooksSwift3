@@ -87,7 +87,7 @@ class HacerBookSwift3Tests: XCTestCase {
         let tag2 = Tag(tag: "Programming", inContext: model.context)
         let tag3 = Tag(tag: "CoreData",inContext: model.context)
         
-        let pb = Book(title: "Programing in CoreData", inContext: model.context)
+        let pb = Book(title: "Programing in CoreData", imgUrl: "http://imagen", pdfUrl: "http://pdf", inContext: model.context)
         
         // Se supone que el libro tiene los dos tags
         

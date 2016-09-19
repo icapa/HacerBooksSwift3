@@ -26,20 +26,23 @@ import CoreData
 public class Book: NSManagedObject {
     static let entityName = "Book"
     
-    convenience init (title: String, inContext context: NSManagedObjectContext){
+    convenience init (title: String, imgUrl: String, pdfUrl: String, inContext context: NSManagedObjectContext){
         let entity = NSEntityDescription.entity(forEntityName: Book.entityName, in: context)!
         if (Book.exists(title, inContext: context) == false){
             self.init(entity: entity, insertInto: context)
             self.title = title
-            self.pdfUrl = nil
-            self.imageUrl = nil
-            
+            self.pdfUrl = pdfUrl
+            self.imageUrl = imgUrl
+            self.isFavorite = false
+            // Imagen vacia
+            self.cover = Cover(book: self, inContext: context)
         }
         else{
             self.init(entity: entity, insertInto: nil)
         }
-        
     }
+    
+    
 
 }
 

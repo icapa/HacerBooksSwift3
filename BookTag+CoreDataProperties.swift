@@ -2,13 +2,13 @@
 //  BookTag+CoreDataProperties.swift
 //  HacerBookSwift3
 //
-//  Created by Iván Cayón Palacio on 18/9/16.
+//  Created by Iván Cayón Palacio on 20/9/16.
 //  Copyright © 2016 KeepCoding. All rights reserved.
 //
 
 import Foundation
 import CoreData
-//import HacerBookSwift3Tests
+
 
 extension BookTag {
 

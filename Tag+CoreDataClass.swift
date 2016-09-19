@@ -64,7 +64,29 @@ extension Tag {
         } catch{
             return false;
         }
+    }
+    
+    static func tagForString(_ tag: String, inContext context: NSManagedObjectContext?)->Tag?{
         
+        let fr = NSFetchRequest<Tag>(entityName: Tag.entityName)
+        fr.fetchLimit = 1
+        fr.fetchBatchSize = 1
+        fr.predicate = NSPredicate(format: "tagName CONTAINS [cd] %@", tag)
+        do{
+            let result = try context?.fetch(fr)
+            guard let resp = result else{
+                return nil
+            }
+            if (resp.count>0){
+                return resp.first
+            }
+            else{
+                return nil
+            }
+        } catch{
+            return nil;
+        }
+
     }
 }
 
