@@ -96,10 +96,34 @@ class HacerBookSwift3Tests: XCTestCase {
         _ = BookTag(theBook: pb, theTag: tag3, inContext: model.context)
         
         // El proceso es hago un fetch de todos los tags
+        let fr = NSFetchRequest<Tag>(entityName: Tag.entityName)
+        fr.fetchLimit = 10
+        fr.fetchBatchSize = 10
+        fr.sortDescriptors = [NSSortDescriptor.init(key: "tagName", ascending: true)]
         
-        // Dentro de BookTag busco los que tenga ese "tag" y me quedo con el libro
+        _ = try! model.context.fetch(fr)
+        let ns = NSFetchedResultsController(fetchRequest: fr,
+                                            managedObjectContext: model.context,
+                                            sectionNameKeyPath: nil, cacheName: nil)
+        try! ns.performFetch()
         
-        
+        let losTags = ns.fetchedObjects!
+        for oneTag in losTags{
+            // Dentro de BookTag busco los que tenga ese "tag" y me quedo con el libro
+            let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
+            fr.fetchLimit = 10
+            fr.fetchBatchSize = 10
+            fr.sortDescriptors = [NSSortDescriptor.init(key: "book", ascending: true)]
+            fr.predicate = NSPredicate(format: "tag == %@", oneTag)
+            let result = try! model.context.fetch(fr)
+            let ns = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: model.context, sectionNameKeyPath: nil, cacheName: nil)
+            try! ns.performFetch()
+            XCTAssertEqual(result.count, 1,"There is only one book in all tags")
+            let p = ns.object(at: IndexPath(row: 0 , section: 0)).book?.title
+            
+            XCTAssertEqual(p, "Programing in CoreData","The book is programming in 'Programming in Core Data' ")
+
+        }
         
         
         
