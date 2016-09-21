@@ -80,9 +80,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //}
         // Fetch request
         
-        let fr = NSFetchRequest<Book>(entityName: Book.entityName)
+        let fr = NSFetchRequest<Tag>(entityName: Tag.entityName)
         fr.fetchBatchSize = 50
-        fr.sortDescriptors = [NSSortDescriptor(key: "title",ascending: true)]
+        fr.sortDescriptors = [NSSortDescriptor(key: "tagName",ascending: true)]
         
         let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: model.context, sectionNameKeyPath: nil, cacheName: nil)
         
