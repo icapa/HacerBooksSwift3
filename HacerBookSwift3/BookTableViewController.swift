@@ -16,6 +16,8 @@ class BookTableViewController: CoreDataTableViewController {
 extension BookTableViewController{
     
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "HackerBookSwift3"
@@ -25,34 +27,47 @@ extension BookTableViewController{
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellId = "BookCell"
         
-        //let nb = fetchedResultsController?.object(at: indexPath) as! Book
+        // Look for the tag section
+        let tagList = Tag.allTags(fetchedResultsController?.managedObjectContext)
+        let tagSection = tagList?[indexPath.section]
+        
+        // Book list
+        let bookList = BookTag.booksForTag(theTag: tagSection!, inContext: fetchedResultsController?.managedObjectContext)
+        
+        
+        
         
         // Create cell
         var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
         if cell == nil{
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
         }
-        // Configurar la celda
-        //cell?.textLabel?.text = nb.title
-        //cell?.detailTextLabel?.text = nb.author?.description
         
-        cell?.textLabel?.text = "probando"
-        cell?.detailTextLabel?.text = "probando2"
+        cell?.textLabel?.text = bookList?[indexPath.row].book?.title
+        //cell?.detailTextLabel?.text = bookList?[indexPath.row].book?.author
+        
+       
         
         return cell!
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
-        //return (fetchedResultsController?.fetchedObjects?.count)!
-        return 5
-        
+        let tagCount = Tag.count(fetchedResultsController?.managedObjectContext)
+        return tagCount
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        //let indexPat = IndexPath(item: 0, section: section)
-        return "Puta Mierda "+section.description
-        //return (fetchedResultsController?.object(at: indexPat) as! Tag).tagName
+        let tagList = Tag.allTags(fetchedResultsController?.managedObjectContext)
+        return tagList?[section].realTagName
+        
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        // Get the tag
+        let tagList = Tag.allTags(fetchedResultsController?.managedObjectContext)
+        let theTag = tagList?[section]
+        
+        // List the 
+        let bookTagList = BookTag.booksForTag(theTag: theTag!, inContext: fetchedResultsController?.managedObjectContext)
+        return (bookTagList?.count)!
+        
     }
     
 }

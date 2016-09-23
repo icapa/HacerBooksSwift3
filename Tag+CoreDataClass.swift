@@ -66,6 +66,36 @@ extension Tag {
         }
     }
     
+    static func count(_ context: NSManagedObjectContext?) -> Int{
+        let fr = NSFetchRequest<Tag>(entityName: Tag.entityName)
+        do{
+            let result = try context?.fetch(fr)
+            guard let resp = result else{
+                return 0
+            }
+            return resp.count
+        }catch{
+            return 0
+        }
+        
+    }
+    
+    static func allTags(_ context: NSManagedObjectContext?)->[Tag]? {
+        let fr = NSFetchRequest<Tag>(entityName: Tag.entityName)
+        fr.sortDescriptors = [NSSortDescriptor.init(key: "tagName", ascending: true)]
+        
+        do{
+            let result = try context?.fetch(fr)
+            guard let resp = result else{
+                return nil
+            }
+            return resp
+        }catch{
+            return nil
+        }
+
+    }
+    
     static func tagForString(_ tag: String, inContext context: NSManagedObjectContext?)->Tag?{
         
         let fr = NSFetchRequest<Tag>(entityName: Tag.entityName)
