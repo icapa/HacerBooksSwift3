@@ -51,7 +51,7 @@ extension Book{
         let fr = NSFetchRequest<Book>(entityName: Book.entityName)
         fr.fetchLimit = 1
         fr.fetchBatchSize = 1
-        fr.predicate = NSPredicate(format: "title CONTAINS [cd] %@", title)
+        fr.predicate = NSPredicate(format: "title == [c] %@", title)
         do{
             let result = try context?.fetch(fr)
             guard let resp = result else{

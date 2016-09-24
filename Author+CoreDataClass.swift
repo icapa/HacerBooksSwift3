@@ -33,7 +33,7 @@ public class Author: NSManagedObject {
     
 }
 
-//MARK - Static class
+//MARK: - Static class
 extension Author {
     static func exists(_ author: String, inContext context: NSManagedObjectContext?) -> Bool {
         let fr = NSFetchRequest<Author>(entityName: Author.entityName)
@@ -49,6 +49,28 @@ extension Author {
         } catch{
             return false;
         }
-        
+    }
+    static func authorForString(_ author: String, inContext context: NSManagedObjectContext?) -> Author?{
+        let fr = NSFetchRequest<Author>(entityName: Author.entityName)
+        fr.fetchLimit = 1
+        fr.fetchBatchSize = 1
+        fr.predicate = NSPredicate(format: "name == [c] %@", author)
+        do{
+            let result = try context?.fetch(fr)
+            guard let resp = result else{
+                return nil
+            }
+            if (resp.count>0){
+                return resp.first
+            }
+            else{
+                return nil
+            }
+        } catch{
+            return nil
+        }
+
     }
 }
+
+

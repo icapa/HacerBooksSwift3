@@ -44,7 +44,9 @@ extension BookTableViewController{
         }
         
         cell?.textLabel?.text = bookList?[indexPath.row].book?.title
-        //cell?.detailTextLabel?.text = bookList?[indexPath.row].book?.author
+        cell?.detailTextLabel?.text = authorsToString(theAuthors:
+            (bookList?[indexPath.row].book?.author)!)
+        //cell?.detailTextLabel?.text = bookList?[indexPath.row].book?.author.
         
        
         
@@ -69,6 +71,20 @@ extension BookTableViewController{
         return (bookTagList?.count)!
         
     }
+    
+}
+
+//MARK: - Presentation
+func authorsToString(theAuthors: NSSet)->String{
+    var stringAuthors : String = ""
+    for each in theAuthors{
+        let oneAuthor = each as! Author
+        stringAuthors.append(oneAuthor.name!)
+        stringAuthors.append(",")
+    }
+    let mierda = stringAuthors.trimmingCharacters(in: CharacterSet.init(charactersIn: ","))
+    
+    return mierda
     
 }
 

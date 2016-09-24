@@ -52,6 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         let pdfUrl = bookValues.2
                         let tags = bookValues.3
                         
+                        
+                        
                         // Add book to core data
                         let oneBook = Book(title: title, imgUrl: imageUrl.absoluteString, pdfUrl: pdfUrl.absoluteString, inContext: model.context)
                         // Add tags to core data
@@ -66,8 +68,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             _ = BookTag(theBook: oneBook, theTag: theTag!, inContext: model.context)
                         }
                         for sAuthor in authors{
-                            let theAuthor = Author(author: sAuthor, inContext: model.context)
-                            theAuthor.addToBook(oneBook)
+                            var theAuthor : Author?
+                            
+                            theAuthor = Author.authorForString(sAuthor, inContext: model.context)
+
+                            if (theAuthor == nil){
+                                  theAuthor = Author(author: sAuthor, inContext: model.context)
+                            }
+                            theAuthor?.addToBook(oneBook)
                         }
                         
                     }
