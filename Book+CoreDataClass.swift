@@ -27,7 +27,6 @@ import UIKit
 public class Book: NSManagedObject {
     static let entityName = "Book"
     
-    var downloadAsync : AsyncData?
     
     convenience init (title: String, imgUrl: String, pdfUrl: String, inContext context: NSManagedObjectContext){
         let entity = NSEntityDescription.entity(forEntityName: Book.entityName, in: context)!
@@ -46,9 +45,38 @@ public class Book: NSManagedObject {
     }
     
     
+    
 
 }
-
+//MARK: -- Favorite managemente
+extension Book{
+    func favoriteSwitch(){
+        if (self.isFavorite == false){
+            // Mark favorite the model
+            self.isFavorite = true
+            // Create a "favorite" tag
+            var favTag = Tag.tagForString("favorite", inContext: self.managedObjectContext)
+            if (favTag==nil){
+                // No existe el tag hay que crearlo
+                favTag = Tag(tag: "favorite", inContext: self.managedObjectContext!)
+            }
+            // Associate Book
+            _ = BookTag(theBook: self,
+                                 theTag: favTag!,
+                                 inContext: self.managedObjectContext!)
+            try! self.managedObjectContext?.save()
+        
+        }else{
+            self.isFavorite=false
+            let theBookTag = BookTag.favoriteBookTag(ofBook: self,inContext: self.managedObjectContext)
+            
+            self.managedObjectContext?.delete(theBookTag!)
+            try! self.managedObjectContext?.save()
+            
+        }
+    }
+}
+//MARK: -- Static functions
 extension Book{
     static func exists(_ title: String, inContext context: NSManagedObjectContext?) -> Bool {
         let fr = NSFetchRequest<Book>(entityName: Book.entityName)

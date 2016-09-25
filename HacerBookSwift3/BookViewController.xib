@@ -73,7 +73,7 @@
         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portada.png" id="uPw-Ic-FjX">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-            <point key="canvasLocation" x="-143" y="326"/>
+            <point key="canvasLocation" x="280" y="355"/>
         </imageView>
     </objects>
     <resources>

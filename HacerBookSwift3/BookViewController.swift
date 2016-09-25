@@ -85,11 +85,7 @@ class BookViewController: UIViewController {
     //MARK: IB Actions Fav & Read
     
     @IBAction func markFavorite(sender: AnyObject) {
-        if model.isFavorite == false {
-            model.isFavorite=true
-        }else{
-            model.isFavorite=false
-        }
+        model.favoriteSwitch()
         syncModelWithView()
         // Mando al delegado el libro que quiero meter o quitar
         //delegate?.bookViewControler(vc: self, didSelectBook: model)
