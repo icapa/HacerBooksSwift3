@@ -41,14 +41,18 @@ class BookViewController: UIViewController {
         
         
         // Los tags
-        var theTags = BookTag.tagsForBook(theBook: model,
+        let theTags = BookTag.tagsForBook(theBook: model,
                                           inContext: model.managedObjectContext)
-        var tagString : String?
+        var tagString : String = ""
         for each in theTags!{
-            
+            tagString.append((each.tag?.realTagName)!)
+            tagString.append(",")
         }
+        let listTagsString = tagString.trimmingCharacters(in: CharacterSet.init(charactersIn: ","))
+
         
-        //self.tagsView.text = "Tags: \(Tag.tagsToString(theTags: stringTags))"
+        
+        self.tagsView.text = "\(listTagsString)"
         
         // Favorito
         favButton.titleLabel?.isHidden=true
