@@ -68,34 +68,3 @@ extension Book{
     }
 
 }
-//MARK: - AsyncDataDownload
-extension Book {
-    func downloadCover()->UIImage{
-        if (self.cover?.photoData==nil){
-            let mainBundle = Bundle.main
-            let defaultImage = mainBundle.url(forResource: "book-icon", withExtension: "png")!
-            
-            // AsyncData
-            let theDefaultData = try! Data(contentsOf: defaultImage)
-        
-            DispatchQueue.global(qos: .default).async {
-                let theUrlImage = URL(string: self.imageUrl!)
-                let imageData = try? Data(contentsOf: theUrlImage!)
-                print("Finish download")
-                DispatchQueue.main.async {
-                    if (imageData==nil){
-                        self.cover?.photoData = nil
-                    }
-                    else{
-                        self.cover?.photoData = imageData as NSData?
-                    }
-                }
-            }
-            // Hay que mandar que descargue en segundo plano
-            return UIImage(data: theDefaultData)!
-        }
-        else{
-            return (self.cover?.image!)!
-        }
-    }
-}

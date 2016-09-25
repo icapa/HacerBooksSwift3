@@ -71,6 +71,20 @@ extension Author {
         }
 
     }
+    //MARK: - Presentation
+    static func authorsToString(theAuthors: NSSet)->String{
+        var stringAuthors : String = ""
+        for each in theAuthors{
+            let oneAuthor = each as! Author
+            stringAuthors.append(oneAuthor.name!)
+            stringAuthors.append(",")
+        }
+        let listAutoresString = stringAuthors.trimmingCharacters(in: CharacterSet.init(charactersIn: ","))
+        
+        return listAutoresString
+        
+    }
+
 }
 
 

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CF076B381D97D041002BB30D /* book-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CF076B371D97D041002BB30D /* book-icon.png */; };
+		CF076B3A1D981950002BB30D /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF076B391D981950002BB30D /* BookViewController.swift */; };
+		CF076B3C1D981964002BB30D /* BookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF076B3B1D981964002BB30D /* BookViewController.xib */; };
+		CF076B3E1D981980002BB30D /* no_favorito.png in Resources */ = {isa = PBXBuildFile; fileRef = CF076B3D1D981980002BB30D /* no_favorito.png */; };
+		CF076B401D981991002BB30D /* favorito.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CF076B3F1D981991002BB30D /* favorito.jpeg */; };
 		CF309DCE1D8A8E7D0071B086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DCD1D8A8E7D0071B086 /* AppDelegate.swift */; };
 		CF309DD51D8A8E7D0071B086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF309DD41D8A8E7D0071B086 /* Assets.xcassets */; };
 		CF309DE31D8A8E7D0071B086 /* HacerBookSwift3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DE21D8A8E7D0071B086 /* HacerBookSwift3Tests.swift */; };
@@ -67,6 +71,10 @@
 
 /* Begin PBXFileReference section */
 		CF076B371D97D041002BB30D /* book-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book-icon.png"; sourceTree = "<group>"; };
+		CF076B391D981950002BB30D /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		CF076B3B1D981964002BB30D /* BookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookViewController.xib; sourceTree = "<group>"; };
+		CF076B3D1D981980002BB30D /* no_favorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_favorito.png; sourceTree = "<group>"; };
+		CF076B3F1D981991002BB30D /* favorito.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = favorito.jpeg; sourceTree = "<group>"; };
 		CF309DCA1D8A8E7D0071B086 /* HacerBookSwift3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HacerBookSwift3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF309DCD1D8A8E7D0071B086 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF309DD41D8A8E7D0071B086 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				CF076B371D97D041002BB30D /* book-icon.png */,
+				CF076B3D1D981980002BB30D /* no_favorito.png */,
+				CF076B3F1D981991002BB30D /* favorito.jpeg */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -195,6 +205,8 @@
 		CF309DF41D8A8FB10071B086 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CF076B3B1D981964002BB30D /* BookViewController.xib */,
+				CF076B391D981950002BB30D /* BookViewController.swift */,
 				CF309DF11D8A8FA30071B086 /* CoreDataTableViewController.swift */,
 				CFF645BB1D90932F0028925B /* BookTableViewController.swift */,
 			);
@@ -319,8 +331,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF309DD51D8A8E7D0071B086 /* Assets.xcassets in Resources */,
+				CF076B401D981991002BB30D /* favorito.jpeg in Resources */,
+				CF076B3C1D981964002BB30D /* BookViewController.xib in Resources */,
 				CF076B381D97D041002BB30D /* book-icon.png in Resources */,
 				CFEF8DD41D8AF70B00286442 /* Default-568h@2x.png in Resources */,
+				CF076B3E1D981980002BB30D /* no_favorito.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +370,7 @@
 				CF309DF21D8A8FA30071B086 /* CoreDataTableViewController.swift in Sources */,
 				CFF645CF1D90A3000028925B /* Book+CoreDataProperties.swift in Sources */,
 				CFF645981D9077B20028925B /* ErrorHackerBooks.swift in Sources */,
+				CF076B3A1D981950002BB30D /* BookViewController.swift in Sources */,
 				CF309E2B1D8AA6DF0071B086 /* Book+CoreDataClass.swift in Sources */,
 				CF309DCE1D8A8E7D0071B086 /* AppDelegate.swift in Sources */,
 				CFF645D21D90A3000028925B /* Cover+CoreDataProperties.swift in Sources */,

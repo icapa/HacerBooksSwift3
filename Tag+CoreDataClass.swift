@@ -118,6 +118,19 @@ extension Tag {
         }
 
     }
+    static func tagsToString(theTags: NSSet)->String{
+        var stringTags : String = ""
+        for each in theTags{
+            let oneTag = each as! Tag
+            stringTags.append(oneTag.tagName!)
+            stringTags.append(",")
+        }
+        let listTagsString = stringTags.trimmingCharacters(in: CharacterSet.init(charactersIn: ","))
+        
+        return listTagsString
+        
+    }
+
 }
 
 
