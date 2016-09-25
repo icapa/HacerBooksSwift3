@@ -35,7 +35,7 @@ extension BookTableViewController{
         let bookList = BookTag.booksForTag(theTag: tagSection!, inContext: fetchedResultsController?.managedObjectContext)
         
         
-        
+    
         
         // Create cell
         var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
@@ -46,7 +46,11 @@ extension BookTableViewController{
         cell?.textLabel?.text = bookList?[indexPath.row].book?.title
         cell?.detailTextLabel?.text = authorsToString(theAuthors:
             (bookList?[indexPath.row].book?.author)!)
-        //cell?.detailTextLabel?.text = bookList?[indexPath.row].book?.author.
+        
+        cell?.imageView?.image = bookList?[indexPath.row].book?.downloadCover()
+        
+        
+    
         
        
         

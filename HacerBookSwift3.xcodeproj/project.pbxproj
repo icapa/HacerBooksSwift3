@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF076B381D97D041002BB30D /* book-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CF076B371D97D041002BB30D /* book-icon.png */; };
 		CF309DCE1D8A8E7D0071B086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DCD1D8A8E7D0071B086 /* AppDelegate.swift */; };
 		CF309DD51D8A8E7D0071B086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF309DD41D8A8E7D0071B086 /* Assets.xcassets */; };
 		CF309DE31D8A8E7D0071B086 /* HacerBookSwift3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DE21D8A8E7D0071B086 /* HacerBookSwift3Tests.swift */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF076B371D97D041002BB30D /* book-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book-icon.png"; sourceTree = "<group>"; };
 		CF309DCA1D8A8E7D0071B086 /* HacerBookSwift3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HacerBookSwift3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF309DCD1D8A8E7D0071B086 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF309DD41D8A8E7D0071B086 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,6 +122,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF076B361D97D025002BB30D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CF076B371D97D041002BB30D /* book-icon.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		CF309DC11D8A8E7D0071B086 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +161,7 @@
 		CF309DCC1D8A8E7D0071B086 /* HacerBookSwift3 */ = {
 			isa = PBXGroup;
 			children = (
+				CF076B361D97D025002BB30D /* Resources */,
 				CFF6458A1D9076520028925B /* DownloadUtils */,
 				CF309DF41D8A8FB10071B086 /* Controllers */,
 				CF309DF31D8A8FA90071B086 /* CoreData */,
@@ -308,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF309DD51D8A8E7D0071B086 /* Assets.xcassets in Resources */,
+				CF076B381D97D041002BB30D /* book-icon.png in Resources */,
 				CFEF8DD41D8AF70B00286442 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

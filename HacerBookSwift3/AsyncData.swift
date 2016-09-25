@@ -73,7 +73,11 @@ class  AsyncData {
             DispatchQueue.global(qos: .default).async {
                 self.delegate?.asyncData(self, willStartLoadingFrom: self.url)
                 
+              
+                
                 let tmpData = try! Data(contentsOf: self.url)
+                
+              
                 
                 DispatchQueue.main.async {
                     self._hasExternalData = true
@@ -165,11 +169,11 @@ extension AsyncDataDelegate {
     
     func asyncData(_ sender: AsyncData, didEndLoadingFrom url: URL){}
     
-    func asyncData(_ sender: AsyncData, didFailLoadingFrom url: URL, error: NSError){
+    public func asyncData(_ sender: AsyncData, didFailLoadingFrom url: URL, error: NSError){
         print("Error loading \(url).\n \(error)")
     }
     
-    func asyncData(_ sender: AsyncData, fileSystemDidFailAt url: URL, error: NSError){
+    public func asyncData(_ sender: AsyncData, fileSystemDidFailAt url: URL, error: NSError){
         print("Error at \(url).\n \(error)")
     }
     

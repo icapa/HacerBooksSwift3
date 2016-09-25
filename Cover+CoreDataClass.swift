@@ -14,6 +14,7 @@ import UIKit
 public class Cover: NSManagedObject {
     static let entityName = "Cover"
     
+    
     var image : UIImage?{
         get{
             guard let data = photoData else{
@@ -21,6 +22,7 @@ public class Cover: NSManagedObject {
             }
             return UIImage(data: data as Data)!
         }
+        
         set{
             guard let img = newValue else{
                 photoData = nil
@@ -28,6 +30,7 @@ public class Cover: NSManagedObject {
             }
             photoData = UIImageJPEGRepresentation(img, 0.9) as NSData!
         }
+        
     }
     
     
@@ -45,7 +48,12 @@ public class Cover: NSManagedObject {
         let ent = NSEntityDescription.entity(forEntityName: Cover.entityName, in: context)!
         self.init(entity: ent, insertInto: context)
         self.book = book
-        
+        self.image = nil
+        // Default image from disk
+               
+
         
     }
+    
 }
+
