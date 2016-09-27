@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.swift
 //  HacerBookSwift3
@@ -59,7 +60,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         // Add tags to core data
                         for sTag in tags{
                             var theTag : Tag?
-    
+                            oneBook.listOfTags.append(sTag)
+                            oneBook.listOfTags.append(" ")
                             theTag = Tag.tagForString(sTag, inContext: model.context)
                             if (theTag == nil){
                                 theTag = Tag(tag: sTag, inContext: model.context)
@@ -67,6 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             // Add the relation between tags and books
                             _ = BookTag(theBook: oneBook, theTag: theTag!, inContext: model.context)
                         }
+                       
+                        
                         for sAuthor in authors{
                             var theAuthor : Author?
                             

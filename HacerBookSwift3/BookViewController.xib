@@ -8,12 +8,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookViewController" customModule="HacerBookSwift3" customModuleProvider="target">
             <connections>
-                <outlet property="authorsView" destination="1rC-Na-61Y" id="jAW-eX-ceb"/>
-                <outlet property="favButton" destination="WQH-q3-LVW" id="NcO-yH-3WR"/>
-                <outlet property="imageBoot" destination="uPw-Ic-FjX" id="vrb-Wh-2O1"/>
-                <outlet property="imageView" destination="6LT-tt-Pke" id="FS7-NA-efg"/>
-                <outlet property="tagsView" destination="US5-CQ-XVE" id="RTR-Xb-9mO"/>
-                <outlet property="titleView" destination="2WX-0K-cFa" id="A33-n4-bVF"/>
+                <outlet property="author" destination="JF7-61-Gw1" id="BI3-tj-nk2"/>
+                <outlet property="imageBook" destination="voy-1M-xuR" id="ctO-IF-P8x"/>
+                <outlet property="tagsLabel" destination="MF0-us-Of6" id="M9c-LI-qtt"/>
+                <outlet property="title" destination="aFA-VF-O22" id="dma-ij-lgX"/>
+                <outlet property="titleLabel" destination="aFA-VF-O22" id="WAx-g8-F5H"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,63 +21,55 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Esto es una prueba de cómo sería el título, Git por ejemplo" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" id="2WX-0K-cFa">
-                    <frame key="frameInset" minX="49.09%" width="320" height="78" maxY="122"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="30"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZrP-Pa-ZSQ">
-                    <frame key="frameInset" width="64" height="68"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" backgroundImage="visorPdf.png"/>
-                    <connections>
-                        <action selector="readBook:" destination="-1" eventType="touchUpInside" id="SSo-G0-DqH"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="none" adjustsFontSizeToFit="NO" id="1rC-Na-61Y">
-                    <frame key="frameInset" minX="0.0%" width="100.00%" height="29" maxY="85"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="US5-CQ-XVE">
-                    <frame key="frameInset" minX="17.87%" width="64.27%" height="80" maxY="9"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tags" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MF0-us-Of6">
+                    <frame key="frameInset" minX="44.27%" width="11.20%" height="37" maxY="76"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WQH-q3-LVW">
-                    <frame key="frameInset" width="54" height="59"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <state key="normal" backgroundImage="no_favorito.png">
-                        <color key="titleColor" red="1" green="0.11851420049054473" blue="0.26716985385726233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JF7-61-Gw1">
+                    <frame key="frameInset" minX="44.27%" width="11.20%" height="21" maxY="121"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aFA-VF-O22">
+                    <frame key="frameInset" minX="44.27%" width="11.20%" height="21" maxY="150"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book-icon.png" id="voy-1M-xuR">
+                    <frame key="frameInset" minY="79" width="375" height="409"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MIk-gP-X0Q">
+                    <frame key="frameInset" minX="319" minY="610" width="56" height="57"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="no_favorito.png"/>
                     <connections>
-                        <action selector="markFavorite:" destination="-1" eventType="touchUpInside" id="HY6-99-t5Y"/>
+                        <action selector="changeFavoritu:" destination="-1" eventType="touchUpInside" id="neT-JM-jO7"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="6LT-tt-Pke">
-                    <frame key="frameInset" minX="7.20%" minY="110" width="85.33%" height="349"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
-                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nyf-oE-bH8">
+                    <frame key="frameInset" minY="610" width="70" height="57"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="buttonPdf" backgroundImage="visorPdf.png"/>
+                    <connections>
+                        <action selector="readPdf:" destination="-1" eventType="touchUpInside" id="tTT-l4-AfW"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="279.5" y="354.5"/>
+            <point key="canvasLocation" x="47.5" y="134.5"/>
         </view>
-        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portada.png" id="uPw-Ic-FjX">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-            <point key="canvasLocation" x="280" y="355"/>
-        </imageView>
     </objects>
     <resources>
+        <image name="book-icon.png" width="256" height="256"/>
         <image name="no_favorito.png" width="720" height="720"/>
-        <image name="portada.png" width="960" height="557"/>
         <image name="visorPdf.png" width="338" height="334"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -26,6 +26,7 @@ import UIKit
 
 public class Book: NSManagedObject {
     static let entityName = "Book"
+    public var listOfTags : String = ""
     
     
     convenience init (title: String, imgUrl: String, pdfUrl: String, inContext context: NSManagedObjectContext){
@@ -55,6 +56,7 @@ extension Book{
             // Mark favorite the model
             self.isFavorite = true
             // Create a "favorite" tag
+            
             var favTag = Tag.tagForString("favorite", inContext: self.managedObjectContext)
             if (favTag==nil){
                 // No existe el tag hay que crearlo
@@ -64,14 +66,19 @@ extension Book{
             _ = BookTag(theBook: self,
                                  theTag: favTag!,
                                  inContext: self.managedObjectContext!)
-            try! self.managedObjectContext?.save()
+            
+            //try! self.managedObjectContext?.save()
+            
         
         }else{
             self.isFavorite=false
+            
             let theBookTag = BookTag.favoriteBookTag(ofBook: self,inContext: self.managedObjectContext)
             
             self.managedObjectContext?.delete(theBookTag!)
-            try! self.managedObjectContext?.save()
+            
+            //try! self.managedObjectContext?.save()
+            
             
         }
     }
