@@ -180,7 +180,8 @@ extension BookTableViewController: UISearchResultsUpdating {
         if (busqueda! != ""){
             let bookPredicate = NSPredicate(format: "book.title CONTAINS [cd] %@",busqueda!)
             let tagPredicate = NSPredicate(format: "tag.tagName CONTAINS [cd] %@",busqueda!)
-            let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [bookPredicate,tagPredicate])
+            let tagAuthor = NSPredicate(format: "book.author.name CONTAINS [cd] %@",busqueda!)
+            let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [bookPredicate,tagPredicate,tagAuthor])
             fr.predicate = predicate
         }
         
