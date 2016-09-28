@@ -51,8 +51,6 @@
 		CFF6457A1D90668C0028925B /* Author+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309E071D8AA6DE0071B086 /* Author+CoreDataClass.swift */; };
 		CFF645921D9076F50028925B /* ResourceFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF645911D9076F50028925B /* ResourceFileManager.swift */; };
 		CFF645931D9076F50028925B /* ResourceFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF645911D9076F50028925B /* ResourceFileManager.swift */; };
-		CFF645951D90774E0028925B /* AsyncData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF645941D90774E0028925B /* AsyncData.swift */; };
-		CFF645961D90774E0028925B /* AsyncData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF645941D90774E0028925B /* AsyncData.swift */; };
 		CFF645981D9077B20028925B /* ErrorHackerBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF645971D9077B20028925B /* ErrorHackerBooks.swift */; };
 		CFF645991D9077B20028925B /* ErrorHackerBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF645971D9077B20028925B /* ErrorHackerBooks.swift */; };
 		CFF6459E1D9080790028925B /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF6459D1D9080790028925B /* JSONProcessing.swift */; };
@@ -108,7 +106,6 @@
 		CFCCCE5F1D8C49A300681637 /* ModelTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelTest.xcdatamodel; sourceTree = "<group>"; };
 		CFEF8DD31D8AF70B00286442 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CFF645911D9076F50028925B /* ResourceFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceFileManager.swift; sourceTree = "<group>"; };
-		CFF645941D90774E0028925B /* AsyncData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncData.swift; sourceTree = "<group>"; };
 		CFF645971D9077B20028925B /* ErrorHackerBooks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHackerBooks.swift; sourceTree = "<group>"; };
 		CFF6459D1D9080790028925B /* JSONProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONProcessing.swift; sourceTree = "<group>"; };
 		CFF645BB1D90932F0028925B /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
@@ -244,7 +241,6 @@
 			children = (
 				CFF6459D1D9080790028925B /* JSONProcessing.swift */,
 				CFF645971D9077B20028925B /* ErrorHackerBooks.swift */,
-				CFF645941D90774E0028925B /* AsyncData.swift */,
 				CFF645911D9076F50028925B /* ResourceFileManager.swift */,
 			);
 			name = DownloadUtils;
@@ -361,7 +357,6 @@
 				CF309E231D8AA6DE0071B086 /* Tag+CoreDataClass.swift in Sources */,
 				CF309E0B1D8AA6DE0071B086 /* Photo+CoreDataClass.swift in Sources */,
 				CF309E0F1D8AA6DE0071B086 /* Cover+CoreDataClass.swift in Sources */,
-				CFF645951D90774E0028925B /* AsyncData.swift in Sources */,
 				CFAE6FF91D9994EB0021D99F /* BookTag+CoreDataProperties.swift in Sources */,
 				CF309E1F1D8AA6DE0071B086 /* Pdf+CoreDataClass.swift in Sources */,
 				CF309DEE1D8A8F830071B086 /* CoreDataStack.swift in Sources */,
@@ -394,7 +389,6 @@
 			files = (
 				CF309E201D8AA6DE0071B086 /* Pdf+CoreDataClass.swift in Sources */,
 				CF309DE31D8A8E7D0071B086 /* HacerBookSwift3Tests.swift in Sources */,
-				CFF645961D90774E0028925B /* AsyncData.swift in Sources */,
 				CFF645931D9076F50028925B /* ResourceFileManager.swift in Sources */,
 				CF309E241D8AA6DE0071B086 /* Tag+CoreDataClass.swift in Sources */,
 				CF309E141D8AA6DE0071B086 /* BookTag+CoreDataClass.swift in Sources */,

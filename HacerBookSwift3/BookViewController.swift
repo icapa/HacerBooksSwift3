@@ -23,8 +23,8 @@ class BookViewController: UIViewController {
     }
     @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var author: UILabel!
-   
+       
+    @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var imageBook: UIImageView!
     
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ class BookViewController: UIViewController {
     //MARK: Sync
     func syncModelWithView(){
         self.tagsLabel.text = _model.listOfTags
-        self.author.text = Author.authorsToString(theAuthors: _model.author!)
+        self.authorLabel.text = Author.authorsToString(theAuthors: _model.author!)
         self.titleLabel.text = _model.title!
         self.imageBook.image = (_model.cover?.image)!
         

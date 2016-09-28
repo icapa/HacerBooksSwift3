@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
-class BookTableViewController: CoreDataTableViewController {
-
+class BookTableViewController: CoreDataTableViewController, UISearchControllerDelegate {
+    let model = CoreDataStack(modelName: "Model", inMemory: false)
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredBooks = [Book]()
 }
 
 //MARK: - DataSource
@@ -21,6 +24,41 @@ extension BookTableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "HackerBookSwift3"
+        // Search controller
+        
+        
+        self.searchController.searchResultsUpdater = self
+        self.searchController.dimsBackgroundDuringPresentation = false
+        self.searchController.definesPresentationContext = true
+        
+        self.searchController.searchBar.sizeToFit()
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        //self.searchController.searchBar.scopeButtonTitles = ["Titulo", "Tag", "Autor"]
+        self.searchController.searchBar.delegate = self
+        self.tableView.tableHeaderView = searchController.searchBar
+        
+        self.filteredBooks = [Book]()
+        
+        // Fetch request por BookTag
+        /*
+        let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
+        fr.fetchBatchSize = 50
+        fr.sortDescriptors = [(NSSortDescriptor(key: "tag.proxyForSorting",ascending: true)),
+                              (NSSortDescriptor(key: "book.title",ascending: true))]
+        let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model?.context)!, sectionNameKeyPath: "tag.tagName", cacheName: nil)
+        self.fetchedResultsController? = fc as! NSFetchedResultsController<NSFetchRequestResult>
+        */
+        
+        let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
+        fr.fetchBatchSize = 50
+        fr.sortDescriptors = [NSSortDescriptor(key: "tag.tagName",ascending: true),
+                              NSSortDescriptor(key: "book",ascending: true)]
+        
+        let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model?.context)!, sectionNameKeyPath: "tag.tagName", cacheName: nil)
+        self.fetchedResultsController? = fc as!
+        NSFetchedResultsController<NSFetchRequestResult>
+        
+        
     }
     
     override func tableView(_ tableView: UITableView,
@@ -127,5 +165,63 @@ extension BookTableViewController {
         }
     }
 }
+//MARK: Searching Bar
+extension BookTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController){
+        //filterContentForSearchText(searchText: searchController.searchBar.text!)
+        
+        // Hay que cambiar el fetch request
+        let busqueda = searchController.searchBar.text
+        
+        let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
+        fr.fetchBatchSize = 50
+        fr.sortDescriptors = [NSSortDescriptor(key: "tag.tagName",ascending: true),
+                              NSSortDescriptor(key: "book",ascending: true)]
+        if (busqueda! != ""){
+            fr.predicate = NSPredicate(format: "book.title CONTAINS [cd] %@", busqueda!)
+        }
+        
+        let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model?.context)!, sectionNameKeyPath: "tag.tagName", cacheName: nil)
+        self.fetchedResultsController? = fc as!
+            NSFetchedResultsController<NSFetchRequestResult>
+        self.tableView.reloadData()
+        
+    }
+    /*
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        
+        self.filteredBooks.removeAll()
+        
+        switch (scope){
+        case "Titulo":
+            if let booksByTitle = Book.filterByTitle(title: searchText, inContext: (self.model?.context)!) {
+                self.filteredBooks.append(contentsOf: booksByTitle)
+            }
+            break
+        case "Tag":
+            if let booksByTag = Tag.filterByTag(tag: searchText, inContext: (self.model?.context)!) {
+                self.filteredBooks.append(contentsOf: booksByTag)
+            }
+            break
+            //        case "Autor":
+            //            if let booksByAuthor = Author.filterByAuthor(author: searchText, inContext: (self.model?.context)!) {
+            //            }
+        //            break
+        default:
+            break
+        }
+        
+        self.tableView.reloadData()
+    }
+    */
+}
+
+extension BookTableViewController: UISearchBarDelegate {
+    private func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        /*filterContentForSearchText(searchText: searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+        */
+    }
+}
+
 
 

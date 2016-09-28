@@ -85,7 +85,7 @@ extension Book{
 }
 //MARK: -- Static functions
 extension Book{
-    static func exists(_ title: String, inContext context: NSManagedObjectContext?) -> Bool {
+    class  func exists(_ title: String, inContext context: NSManagedObjectContext?) -> Bool {
         let fr = NSFetchRequest<Book>(entityName: Book.entityName)
         fr.fetchLimit = 1
         fr.fetchBatchSize = 1
@@ -100,6 +100,22 @@ extension Book{
             return false;
         }
         
+    }
+    
+    class func filterByTitle(title t: String, inContext context: NSManagedObjectContext) -> [Book]? {
+        
+        let query = NSFetchRequest<Book>(entityName: Book.entityName)
+        
+        query.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        query.predicate = NSPredicate(format: "title CONTAINS [cd] %@", t)
+        
+        do {
+            let res = try context.fetch(query) as [Book]
+            return res
+            
+        } catch {
+            return nil
+        }
     }
 
 }

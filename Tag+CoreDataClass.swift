@@ -50,7 +50,7 @@ public class Tag: NSManagedObject {
 
 //MARK: - Static class
 extension Tag {
-    static func exists(_ tag: String, inContext context: NSManagedObjectContext?) -> Bool {
+    class func exists(_ tag: String, inContext context: NSManagedObjectContext?) -> Bool {
         let fr = NSFetchRequest<Tag>(entityName: Tag.entityName)
         fr.fetchLimit = 1
         fr.fetchBatchSize = 1
@@ -66,7 +66,7 @@ extension Tag {
         }
     }
     
-    static func count(_ context: NSManagedObjectContext?) -> Int{
+    class func count(_ context: NSManagedObjectContext?) -> Int{
         let fr = NSFetchRequest<Tag>(entityName: Tag.entityName)
         do{
             let result = try context?.fetch(fr)
@@ -80,7 +80,7 @@ extension Tag {
         
     }
     
-    static func allTags(_ context: NSManagedObjectContext?)->[Tag]? {
+    class func allTags(_ context: NSManagedObjectContext?)->[Tag]? {
         let fr = NSFetchRequest<Tag>(entityName: Tag.entityName)
         fr.sortDescriptors = [NSSortDescriptor.init(key: "tagName", ascending: true)]
         
@@ -96,7 +96,7 @@ extension Tag {
 
     }
     
-    static func tagForString(_ tag: String, inContext context: NSManagedObjectContext?)->Tag?{
+    class func tagForString(_ tag: String, inContext context: NSManagedObjectContext?)->Tag?{
         
         let fr = NSFetchRequest<Tag>(entityName: Tag.entityName)
         fr.fetchLimit = 1
@@ -118,7 +118,7 @@ extension Tag {
         }
 
     }
-    static func tagsToString(theTags: NSSet)->String{
+    class func tagsToString(theTags: NSSet)->String{
         var stringTags : String = ""
         for each in theTags{
             let oneTag = each as! Tag
@@ -128,6 +128,23 @@ extension Tag {
         let listTagsString = stringTags.trimmingCharacters(in: CharacterSet.init(charactersIn: ","))
         
         return listTagsString
+        
+    }
+    class func filterByTag(tag t: String, inContext context: NSManagedObjectContext) -> [Book]? {
+        
+        let query = NSFetchRequest<Tag>(entityName: Tag.entityName)
+        
+        //array de NSSortDescriptors, busco toos los tags que coincidan con lo seleccionado
+        query.sortDescriptors = [NSSortDescriptor(key: "proxyForSorting", ascending: true)]
+        query.predicate = NSPredicate(format: "tag CONTAINS [cd] %@", t)
+        
+        do {
+            _ = try context.fetch(query) as [Tag]
+            return nil
+            
+        } catch {
+            return nil
+        }
         
     }
 
