@@ -178,7 +178,10 @@ extension BookTableViewController: UISearchResultsUpdating {
         fr.sortDescriptors = [NSSortDescriptor(key: "tag.tagName",ascending: true),
                               NSSortDescriptor(key: "book",ascending: true)]
         if (busqueda! != ""){
-            fr.predicate = NSPredicate(format: "book.title CONTAINS [cd] %@", busqueda!)
+            let bookPredicate = NSPredicate(format: "book.title CONTAINS [cd] %@",busqueda!)
+            let tagPredicate = NSPredicate(format: "tag.tagName CONTAINS [cd] %@",busqueda!)
+            let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [bookPredicate,tagPredicate])
+            fr.predicate = predicate
         }
         
         let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model?.context)!, sectionNameKeyPath: "tag.tagName", cacheName: nil)
