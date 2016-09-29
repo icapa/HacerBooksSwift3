@@ -26,7 +26,7 @@
     </entity>
     <entity name="BookTag" representedClassName=".BookTag" syncable="YES">
         <relationship name="book" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="bookTag" inverseEntity="Book" syncable="YES"/>
-        <relationship name="tag" maxCount="1" deletionRule="Cascade" destinationEntity="Tag" inverseName="bookTag" inverseEntity="Tag" syncable="YES"/>
+        <relationship name="tag" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="bookTag" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="Cover" representedClassName=".Cover" syncable="YES">
         <attribute name="photoData" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -54,7 +54,7 @@
         <element name="Annotation" positionX="52" positionY="-69" width="128" height="150"/>
         <element name="Author" positionX="-297" positionY="-261" width="128" height="73"/>
         <element name="Book" positionX="-117" positionY="81" width="128" height="178"/>
-        <element name="BookTag" positionX="-290" positionY="279" width="128" height="73"/>
+        <element name="BookTag" positionX="-290" positionY="279" width="128" height="75"/>
         <element name="Cover" positionX="-360" positionY="9" width="128" height="73"/>
         <element name="Localization" positionX="27" positionY="237" width="128" height="105"/>
         <element name="Pdf" positionX="-29" positionY="-153" width="128" height="73"/>

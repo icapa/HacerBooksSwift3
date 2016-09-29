@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let jsonData = try loadJSONFile()
                 let jsonDicts = try JSONSerialization.jsonObject(with: jsonData as Data, options: .allowFragments) as? JSONArray
                 
+               
                 for oneDict in jsonDicts!{
                     do{
                         let bookValues =  try decodeForCoreData(book: oneDict)

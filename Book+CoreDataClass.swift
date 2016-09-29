@@ -45,16 +45,11 @@ public class Book: NSManagedObject {
         }
     }
     
-    
-    
-
 }
 //MARK: -- Favorite managemente
 extension Book{
     func favoriteSwitch(){
-        if (self.isFavorite == false){
-            // Mark favorite the model
-            self.isFavorite = true
+        if (self.isFavorite == true){
             // Create a "favorite" tag
             
             var favTag = Tag.tagForString("favorite", inContext: self.managedObjectContext)
@@ -71,14 +66,13 @@ extension Book{
             
         
         }else{
-            self.isFavorite=false
             
             let theBookTag = BookTag.favoriteBookTag(ofBook: self,inContext: self.managedObjectContext)
+            if (theBookTag != nil){
+                self.managedObjectContext?.delete(theBookTag!)
             
-            self.managedObjectContext?.delete(theBookTag!)
-            
-            //try! self.managedObjectContext?.save()
-            
+                //try! self.managedObjectContext?.save()
+            }
             
         }
     }
@@ -101,21 +95,58 @@ extension Book{
         }
         
     }
-    
-    class func filterByTitle(title t: String, inContext context: NSManagedObjectContext) -> [Book]? {
-        
-        let query = NSFetchRequest<Book>(entityName: Book.entityName)
-        
-        query.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-        query.predicate = NSPredicate(format: "title CONTAINS [cd] %@", t)
-        
-        do {
-            let res = try context.fetch(query) as [Book]
-            return res
-            
-        } catch {
-            return nil
+}
+//MARK: - KVO
+extension Book{
+    //@nonobjc static let observableKeys = ["text","photo.photoData"]
+    static func observableKeys() -> [String] {return ["isFavorite"]};
+    func setupKVO(){
+        // alta en las notificaciones
+        // para algunas propiedades
+        // Deberes: Usar una la funcion map
+        for key in Book.observableKeys(){
+            self.addObserver(self,
+                             forKeyPath: key,
+                             options: [],
+                             context: nil)
         }
     }
-
+    
+    func tearDownKVO(){
+        // Baja en todas las notificaciones
+        for key in Book.observableKeys(){
+            self.removeObserver(self, forKeyPath: key)
+        }
+    }
+    
+    public override func observeValue(forKeyPath keyPath: String?,
+                                      of object: Any?,
+                                      change: [NSKeyValueChangeKey : Any]?,
+                                      context: UnsafeMutableRawPointer?) {
+        self.favoriteSwitch()
+    }
+    
 }
+
+//MARK: - Lifecycle
+extension Book{
+    // Se llama una sola vez
+    
+    public override func awakeFromInsert() {
+        super.awakeFromInsert()
+        setupKVO()
+    }
+    
+    
+    // Se llama varias veces
+    public override func awakeFromFetch() {
+        super.awakeFromFetch()
+        setupKVO()
+    }
+    
+    public override func willTurnIntoFault() {
+        super.willTurnIntoFault()
+        tearDownKVO()
+    }
+}
+

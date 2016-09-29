@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookViewController" customModule="HacerBookSwift3" customModuleProvider="target">
             <connections>
                 <outlet property="authorLabel" destination="JF7-61-Gw1" id="YzQ-gN-AjW"/>
+                <outlet property="buttonFavorite" destination="MIk-gP-X0Q" id="j9M-Fb-snK"/>
                 <outlet property="imageBook" destination="voy-1M-xuR" id="ctO-IF-P8x"/>
                 <outlet property="tagsLabel" destination="MF0-us-Of6" id="M9c-LI-qtt"/>
                 <outlet property="titleLabel" destination="aFA-VF-O22" id="WAx-g8-F5H"/>

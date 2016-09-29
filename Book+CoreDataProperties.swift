@@ -2,12 +2,13 @@
 //  Book+CoreDataProperties.swift
 //  HacerBookSwift3
 //
-//  Created by Iván Cayón Palacio on 26/9/16.
+//  Created by Iván Cayón Palacio on 29/9/16.
 //  Copyright © 2016 KeepCoding. All rights reserved.
 //
 
 import Foundation
 import CoreData
+
 
 extension Book {
 

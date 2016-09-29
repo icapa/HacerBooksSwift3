@@ -46,6 +46,10 @@ struct CoreDataStack {
         
         
         
+        // ivan
+        
+        
+        
         // Create the store coordinator
         coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         
