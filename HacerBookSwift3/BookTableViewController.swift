@@ -74,7 +74,7 @@ extension BookTableViewController{
         
         cell?.textLabel?.text = book?.title
         cell?.detailTextLabel?.text = Author.authorsToString(theAuthors:
-            (book?.author)!)
+            (book?.author))
         
         cell?.imageView?.image = self.downloadCover(ofBook:
             (book)!)

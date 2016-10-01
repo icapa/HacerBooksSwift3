@@ -19,18 +19,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let model = CoreDataStack(modelName: "Model", inMemory: false)!
     
+    func tddCutreCoreData(){
+        // Creo un libro
+        let prueba = Book(title: "Prueba", imgUrl: "img", pdfUrl: "url", inContext: model.context)
+        let prueba2 = Book(title: "Prueba2", imgUrl: "img", pdfUrl: "url", inContext: model.context)
+        // Creo un tag
+        let tag1 = Tag(tag: "tag1", inContext: model.context)
+        _ = BookTag(theBook: prueba, theTag: tag1, inContext: model.context)
+        _ = BookTag(theBook: prueba2, theTag: tag1, inContext: model.context)
+        
+        let tag2 = Tag(tag: "tag2", inContext: model.context)
+        _ = BookTag(theBook: prueba, theTag: tag2, inContext: model.context)
+        _ = BookTag(theBook: prueba2, theTag: tag2, inContext: model.context)
+        
+        model.save()
+        
+        
+        //---- Esto es hasta aqui
+        
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // For testing 
         try! model.dropAllData()
         
-        // for testing,airport mode
-        markFirstLaunch(to: false)
-        
-        // JSON File is load in main queue, it's a small file
-        // it should be put also 
-        
+        tddCutreCoreData()
+       
+        /*
+        // <<<< Carga de json
+        markFirstLaunch(to: true)
         do{
             try downloadJSONifNeeded()
         }catch{
@@ -38,8 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Process JSON File and fill CoreData, backgound
-        //if (isFirstLaunch()==true){
-        //    markFirstLaunch(to: false)
+        if (isFirstLaunch()==true){
+            markFirstLaunch(to: false)
             
             do{
                 let jsonData = try loadJSONFile()
@@ -91,7 +109,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Json File is not downloaded")
             }
             model.save()
-        //}
+        }
+        // <<< Carga de json
+        */
+        
+        
         // Fetch request
         
         let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)

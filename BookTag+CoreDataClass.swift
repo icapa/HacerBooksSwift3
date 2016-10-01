@@ -43,6 +43,31 @@ extension BookTag{
             return nil;
         }
     }
+    static func isBookInFavororites(theBook: Book,
+                                    theTags tag: Tag,
+                                    inContext context: NSManagedObjectContext?)->Bool{
+        let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
+        fr.fetchLimit = 1
+        fr.fetchBatchSize = 1
+        
+        fr.predicate = NSPredicate(format: "tag == %@ AND book == %@", tag, theBook)
+        
+        do{
+            let result = try context?.fetch(fr)
+            guard let resp = result else{
+                return false
+            }
+            if (resp.count>0){
+                return true
+            }
+            else{
+                return false
+            }
+        } catch{
+            return false
+        }
+
+    }
     static func tagsForBook(theBook : Book,
                             inContext context: NSManagedObjectContext?)->[BookTag]?{
         let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)

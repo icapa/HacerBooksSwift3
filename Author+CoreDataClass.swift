@@ -72,9 +72,12 @@ extension Author {
 
     }
     //MARK: - Presentation
-    static func authorsToString(theAuthors: NSSet)->String{
+    static func authorsToString(theAuthors: NSSet?)->String{
         var stringAuthors : String = ""
-        for each in theAuthors{
+        if (theAuthors==nil){
+            return ""
+        }
+        for each in theAuthors!{
             let oneAuthor = each as! Author
             stringAuthors.append(oneAuthor.name!)
             stringAuthors.append(",")

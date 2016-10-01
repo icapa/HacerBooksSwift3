@@ -27,7 +27,7 @@
     <entity name="BookTag" representedClassName="HacerBookSwift3Tests.BookTag" syncable="YES">
         <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="book" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="bookTag" inverseEntity="Book" syncable="YES"/>
-        <relationship name="tag" maxCount="1" deletionRule="Cascade" destinationEntity="Tag" inverseName="bookTag" inverseEntity="Tag" syncable="YES"/>
+        <relationship name="tag" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="bookTag" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="Cover" representedClassName="HacerBookSwift3Tests.Cover" syncable="YES">
         <attribute name="photoData" attributeType="Binary" syncable="YES"/>

@@ -57,21 +57,30 @@ extension Book{
                 // No existe el tag hay que crearlo
                 favTag = Tag(tag: "favorite", inContext: self.managedObjectContext!)
             }
-            // Associate Book
-            _ = BookTag(theBook: self,
-                                 theTag: favTag!,
-                                 inContext: self.managedObjectContext!)
+            // Test if register already exists
             
-            //try! self.managedObjectContext?.save()
+            // Associate Book
+            if (BookTag.isBookInFavororites(theBook: self,
+                                            theTags: favTag!,
+                                            inContext: self.managedObjectContext)==false){
+                _ = BookTag(theBook: self,
+                            theTag: favTag!,
+                            inContext: self.managedObjectContext!)
+            
+            try! self.managedObjectContext?.save()
+            }
             
         
         }else{
             
             let theBookTag = BookTag.favoriteBookTag(ofBook: self,inContext: self.managedObjectContext)
             if (theBookTag != nil){
-                self.managedObjectContext?.delete(theBookTag!)
-            
-                //try! self.managedObjectContext?.save()
+                
+                theBookTag?.tag=nil
+                theBookTag?.book=nil
+                //theBookTag?.tag?.removeFromBookTag(theBookTag!)
+                
+                try! self.managedObjectContext?.save()
             }
             
         }
@@ -123,6 +132,7 @@ extension Book{
                                       of object: Any?,
                                       change: [NSKeyValueChangeKey : Any]?,
                                       context: UnsafeMutableRawPointer?) {
+        
         self.favoriteSwitch()
     }
     

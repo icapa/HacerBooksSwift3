@@ -18,7 +18,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uqg-1K-RNX">
+                <webView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wny-Fo-eeG">
+                    <frame key="frameInset" minX="16" minY="38" width="343" height="542"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </webView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uqg-1K-RNX">
+                    <frame key="frameInset" minX="0.0%" width="100.00%" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <items>
                         <barButtonItem title="View Notes" id="7qF-z2-hxm">
                             <connections>
@@ -29,20 +36,9 @@
                         <barButtonItem systemItem="add" id="oTz-xu-a91"/>
                     </items>
                 </toolbar>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wny-Fo-eeG">
-                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </webView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstItem="uqg-1K-RNX" firstAttribute="centerX" secondItem="wny-Fo-eeG" secondAttribute="centerX" id="00K-hh-4Mb"/>
-                <constraint firstItem="uqg-1K-RNX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BDh-0R-HNq"/>
-                <constraint firstItem="wny-Fo-eeG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aWW-s6-iQg"/>
-                <constraint firstItem="uqg-1K-RNX" firstAttribute="top" secondItem="wny-Fo-eeG" secondAttribute="bottom" constant="226" id="fun-Fc-dPT"/>
-                <constraint firstAttribute="trailing" secondItem="wny-Fo-eeG" secondAttribute="trailing" id="oyj-SN-wPV"/>
-                <constraint firstAttribute="bottom" secondItem="uqg-1K-RNX" secondAttribute="bottom" id="tCe-tH-Ngz"/>
-                <constraint firstItem="wny-Fo-eeG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zfT-Di-EoW"/>
-            </constraints>
+            <point key="canvasLocation" x="47.5" y="134.5"/>
         </view>
     </objects>
 </document>
