@@ -48,7 +48,7 @@ extension BookTableViewController{
         let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
         fr.fetchBatchSize = 50
         fr.sortDescriptors = [NSSortDescriptor(key: "tag.tagName",ascending: true),
-                              NSSortDescriptor(key: "book",ascending: true)]
+                              NSSortDescriptor(key: "book.title",ascending: true)]
         
         let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model_contex)!, sectionNameKeyPath: "tag.tagName", cacheName: nil)
         self.fetchedResultsController? = fc as!
@@ -147,7 +147,7 @@ extension BookTableViewController: UISearchResultsUpdating {
         let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
         fr.fetchBatchSize = 50
         fr.sortDescriptors = [NSSortDescriptor(key: "tag.tagName",ascending: true),
-                              NSSortDescriptor(key: "book",ascending: true)]
+                              NSSortDescriptor(key: "book.title",ascending: true)]
         if (busqueda! != ""){
             let bookPredicate = NSPredicate(format: "book.title CONTAINS [cd] %@",busqueda!)
             let tagPredicate = NSPredicate(format: "tag.tagName CONTAINS [cd] %@",busqueda!)

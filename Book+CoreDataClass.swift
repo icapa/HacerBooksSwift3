@@ -67,7 +67,7 @@ extension Book{
                             theTag: favTag!,
                             inContext: self.managedObjectContext!)
             
-            try! self.managedObjectContext?.save()
+                try! self.managedObjectContext?.save()
             }
             
         

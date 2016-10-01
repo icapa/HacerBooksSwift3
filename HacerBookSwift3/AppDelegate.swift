@@ -34,6 +34,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         model.save()
         
+        //---- Añado los dos a los favoritos
+        
+        var favTag = Tag.tagForString("favorite", inContext: prueba.managedObjectContext)
+        if (favTag==nil){
+            // No existe el tag hay que crearlo
+            favTag = Tag(tag: "favorite", inContext: prueba.managedObjectContext!)
+        }
+        if (BookTag.isBookInFavororites(theBook: prueba,
+                                        theTags: favTag!,
+                                        inContext: prueba.managedObjectContext)==false){
+            _ = BookTag(theBook: prueba,
+                        theTag: favTag!,
+                        inContext: prueba.managedObjectContext!)
+            
+            try! prueba.managedObjectContext?.save()
+        }
+
+        
+        
+        var favTag1 = Tag.tagForString("favorite", inContext: prueba2.managedObjectContext)
+        if (favTag1==nil){
+            // No existe el tag hay que crearlo
+            favTag1 = Tag(tag: "favorite", inContext: prueba2.managedObjectContext!)
+        }
+        if (BookTag.isBookInFavororites(theBook: prueba2,
+                                        theTags: favTag1!,
+                                        inContext: prueba2.managedObjectContext)==false){
+            _ = BookTag(theBook: prueba2,
+                        theTag: favTag1!,
+                        inContext: prueba2.managedObjectContext!)
+            
+            try! prueba2.managedObjectContext?.save()
+        }
+
+        
+        
+        
+        
+        
+        
+        
+        
+        model.save()
+        
         
         //---- Esto es hasta aqui
         
@@ -44,9 +88,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // For testing 
         try! model.dropAllData()
         
-        tddCutreCoreData()
+        //tddCutreCoreData()
        
-        /*
+        
         // <<<< Carga de json
         markFirstLaunch(to: true)
         do{
@@ -111,7 +155,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             model.save()
         }
         // <<< Carga de json
-        */
+ 
         
         
         // Fetch request
@@ -119,7 +163,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
         fr.fetchBatchSize = 50
         fr.sortDescriptors = [NSSortDescriptor(key: "tag.tagName",ascending: true),
-                              NSSortDescriptor(key: "book",ascending: true)]
+                              NSSortDescriptor(key: "book.title",ascending: true)]
         
         let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: model.context, sectionNameKeyPath: "tag.tagName", cacheName: nil)
         
