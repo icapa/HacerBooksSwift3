@@ -19,4 +19,5 @@ extension Pdf {
     @NSManaged public var pdfData: NSData?
     @NSManaged public var book: Book?
 
+    
 }
