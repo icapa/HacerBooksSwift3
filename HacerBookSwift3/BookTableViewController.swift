@@ -10,16 +10,12 @@ import UIKit
 import CoreData
 
 class BookTableViewController: CoreDataTableViewController, UISearchControllerDelegate {
-    let model = CoreDataStack(modelName: "Model", inMemory: false)
+    //let model = CoreDataStack(modelName: "Model", inMemory: false)
     let searchController = UISearchController(searchResultsController: nil)
-    var filteredBooks = [Book]()
 }
 
 //MARK: - DataSource
 extension BookTableViewController{
-    
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +33,7 @@ extension BookTableViewController{
         self.searchController.searchBar.delegate = self
         self.tableView.tableHeaderView = searchController.searchBar
         
-        self.filteredBooks = [Book]()
+        
         
         // Fetch request por BookTag
         /*
@@ -48,13 +44,13 @@ extension BookTableViewController{
         let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model?.context)!, sectionNameKeyPath: "tag.tagName", cacheName: nil)
         self.fetchedResultsController? = fc as! NSFetchedResultsController<NSFetchRequestResult>
         */
-        
+        let model_contex = self.fetchedResultsController?.managedObjectContext
         let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
         fr.fetchBatchSize = 50
         fr.sortDescriptors = [NSSortDescriptor(key: "tag.tagName",ascending: true),
                               NSSortDescriptor(key: "book",ascending: true)]
         
-        let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model?.context)!, sectionNameKeyPath: "tag.tagName", cacheName: nil)
+        let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model_contex)!, sectionNameKeyPath: "tag.tagName", cacheName: nil)
         self.fetchedResultsController? = fc as!
         NSFetchedResultsController<NSFetchRequestResult>
         
@@ -64,31 +60,6 @@ extension BookTableViewController{
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellId = "BookCell"
-        /* ESTO ES COMO LO HAGO AHORA <<<<<<
-        
-        // Look for the tag section
-        let tagList = Tag.allTags(fetchedResultsController?.managedObjectContext)
-        let tagSection = tagList?[indexPath.section]
-        
-        // Book list
-        let bookList = BookTag.booksForTag(theTag: tagSection!, inContext: fetchedResultsController?.managedObjectContext)
-        
-        
-        // Create cell
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
-        if cell == nil{
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
-        }
-        
-        cell?.textLabel?.text = bookList?[indexPath.row].book?.title
-        cell?.detailTextLabel?.text = Author.authorsToString(theAuthors:
-            (bookList?[indexPath.row].book?.author)!)
-        
-        cell?.imageView?.image = self.downloadCover(ofBook:
-            (bookList?[indexPath.row].book)!)
-        <<<<<<<<<<<<<<< */
-        
-        // Esto de prueba
         
         
         
@@ -185,7 +156,9 @@ extension BookTableViewController: UISearchResultsUpdating {
             fr.predicate = predicate
         }
         
-        let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model?.context)!, sectionNameKeyPath: "tag.tagName", cacheName: nil)
+        let model_context = self.fetchedResultsController?.managedObjectContext
+        
+        let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model_context)!, sectionNameKeyPath: "tag.tagName", cacheName: nil)
         self.fetchedResultsController? = fc as!
             NSFetchedResultsController<NSFetchRequestResult>
         self.tableView.reloadData()

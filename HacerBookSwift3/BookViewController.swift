@@ -23,7 +23,10 @@ class BookViewController: UIViewController {
         syncModelWithView()
     }
     @IBAction func readPdf(_ sender: AnyObject) {
+        let pdfVC = PdfViewController(model: _model)
+        navigationController?.pushViewController(pdfVC, animated: true)
     }
+    
     @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
        
@@ -54,7 +57,7 @@ class BookViewController: UIViewController {
         self.tagsLabel.text = _model.listOfTags
         self.authorLabel.text = Author.authorsToString(theAuthors: _model.author!)
         self.titleLabel.text = _model.title!
-        self.imageBook.image = (_model.cover?.image)!
+        
         if (_model.isFavorite == true){
             
             let fav = UIImage(named: "favorito.jpeg")
@@ -67,7 +70,8 @@ class BookViewController: UIViewController {
                 nofav,
                 for: .normal)
         }
-            
+        self.imageBook.image = downloadCover(ofBook: _model)
+        
     }
     
     
@@ -78,3 +82,38 @@ class BookViewController: UIViewController {
     }
     
 }
+// Download cover in case
+extension BookViewController {
+    func downloadCover(ofBook book:Book)->UIImage{
+        if (book.cover?.photoData==nil){
+            let mainBundle = Bundle.main
+            let defaultImage = mainBundle.url(forResource: "book-icon", withExtension: "png")!
+            
+            // AsyncData
+            let theDefaultData = try! Data(contentsOf: defaultImage)
+            
+            DispatchQueue.global(qos: .default).async {
+                let theUrlImage = URL(string: book.imageUrl!)
+                let imageData = try? Data(contentsOf: theUrlImage!)
+                DispatchQueue.main.async {
+                    if (imageData==nil){
+                        book.cover?.photoData = nil
+                    }
+                    else{
+                        book.cover?.photoData = imageData as NSData?
+                        
+                        
+                        try! book.managedObjectContext?.save()
+                        
+                    }
+                }
+            }
+            // Hay que mandar que descargue en segundo plano
+            return UIImage(data: theDefaultData)!
+        }
+        else{
+            return (book.cover?.image!)!
+        }
+    }
+}
+

@@ -25,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // For testing 
         try! model.dropAllData()
         
-        
+        // for testing,airport mode
+        markFirstLaunch(to: false)
         
         // JSON File is load in main queue, it's a small file
         // it should be put also 
