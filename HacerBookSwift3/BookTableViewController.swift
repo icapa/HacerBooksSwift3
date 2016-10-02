@@ -10,12 +10,17 @@ import UIKit
 import CoreData
 
 class BookTableViewController: CoreDataTableViewController, UISearchControllerDelegate {
-    //let model = CoreDataStack(modelName: "Model", inMemory: false)
+    let model = CoreDataStack(modelName: "Model", inMemory: false)
     let searchController = UISearchController(searchResultsController: nil)
+    
+    var isfirstLoad : Bool = true
 }
 
 //MARK: - DataSource
 extension BookTableViewController{
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +67,20 @@ extension BookTableViewController{
             navigationController?.pushViewController(bookVC, animated: true)
         }
         
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        /* Si habia un libro abierto por defecto */
+        if (isfirstLoad==true){
+            isfirstLoad = false
+            let model_contex = self.fetchedResultsController?.managedObjectContext
+            let defaultBook = loadIdObjectDefaults(inContext: model_contex)
+            
+            if (defaultBook != nil){
+                let bookVC = BookViewController(model: defaultBook!)
+                navigationController?.pushViewController(bookVC, animated: true)
+            }
+        }
+
     }
     
     override func tableView(_ tableView: UITableView,
@@ -129,10 +148,10 @@ extension BookTableViewController {
                     }
                     else{
                         book.cover?.photoData = imageData as NSData?
-                        
+                        self.model?.save()
                         self.tableView.reloadData()
                         
-                        try! book.managedObjectContext?.save()
+                        //try! book.managedObjectContext?.save()
                         
                     }
                 }

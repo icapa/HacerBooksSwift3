@@ -100,6 +100,7 @@ extension BookViewController {
                         
                         
                         try! book.managedObjectContext?.save()
+                        self.imageBook.image = book.cover?.image
                         
                     }
                 }
