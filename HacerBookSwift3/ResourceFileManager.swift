@@ -6,6 +6,10 @@
 //  Copyright © 2016 KeepCoding. All rights reserved.
 //
 
+import CoreData
+
+
+
 // La informacion que tenemos
 let jsonFileName = "books_readable.json"
 let jsonUrl="https://keepcodigtest.blob.core.windows.net/containerblobstest/"   // Url to get json file
@@ -238,5 +242,29 @@ func getUrlLocalFileSystem(fromPath path: FileSystemDirectory) throws -> NSURL{
     }
     return laUrl as NSURL
 }
-   
 
+//MARK: - Actual Book
+let BOOK_SAVED = "BookSaved"
+
+func saveIdObjectInDefaults(withModel model: Book){
+    let uri = model.objectID.uriRepresentation()
+    let deb = uri.absoluteString
+    UserDefaults.standard.set(deb,forKey: BOOK_SAVED)
+}
+
+func loadIdObjectDefaults(inContext context : NSManagedObjectContext?)->Book?{
+        
+    
+    let myObjectUrl = NSURL(string: UserDefaults.standard.value(forKey: BOOK_SAVED) as! String)
+    if (myObjectUrl == nil){
+        return nil
+    }
+    let myObjectId = context?.persistentStoreCoordinator?.managedObjectID(forURIRepresentation: myObjectUrl as! URL)
+    if (myObjectId == nil){
+        return nil
+    }
+    let myObject = try! context?.existingObject(with: myObjectId!)
+    let theBook = myObject as? Book
+    return theBook
+
+}

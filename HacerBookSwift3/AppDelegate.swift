@@ -86,16 +86,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        var defaultBook: Book? = nil
         
         // For testing
-        try! model.dropAllData()
+        //try! model.dropAllData()
         
         
        
         
         // <<<< Carga de json
-        markFirstLaunch(to: true)
+        //markFirstLaunch(to: true)
         do{
             try downloadJSONifNeeded()
         }catch{
@@ -148,11 +147,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             }
                             theAuthor?.addToBook(oneBook)
                         }
-                        // De momento para probar un libro por defecto
-                        if (defaultBook==nil){
-                            defaultBook = oneBook
-                        }
-                        
                     }
                 }
             

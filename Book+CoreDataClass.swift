@@ -143,5 +143,14 @@ extension Book{
     }
     
 }
+//MARK: - Serialization object
+extension Book{
+    func archiveURIRepresentation() -> NSData? {
+        let uri = self.objectID.uriRepresentation()
+        return NSKeyedArchiver.archivedData(withRootObject: uri) as NSData?
+    }
+           
+}
+
 
 

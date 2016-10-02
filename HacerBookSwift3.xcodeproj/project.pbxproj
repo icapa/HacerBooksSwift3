@@ -36,6 +36,7 @@
 		CF309E271D8AA6DE0071B086 /* Author+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309E071D8AA6DE0071B086 /* Author+CoreDataClass.swift */; };
 		CF309E2B1D8AA6DF0071B086 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309E091D8AA6DE0071B086 /* Book+CoreDataClass.swift */; };
 		CF309E2C1D8AA6DF0071B086 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309E091D8AA6DE0071B086 /* Book+CoreDataClass.swift */; };
+		CF8CFE9A1DA1AA6D00C4C9A5 /* CoreDataCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8CFE991DA1AA6D00C4C9A5 /* CoreDataCollectionViewController.swift */; };
 		CFAE6FFE1D99A84E0021D99F /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE6FFC1D99A84E0021D99F /* BookViewController.swift */; };
 		CFAE6FFF1D99A84E0021D99F /* BookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFAE6FFD1D99A84E0021D99F /* BookViewController.xib */; };
 		CFAE70141D9FCA1D0021D99F /* PdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE70121D9FCA1D0021D99F /* PdfViewController.swift */; };
@@ -95,6 +96,7 @@
 		CF309E051D8AA6DE0071B086 /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Tag+CoreDataClass.swift"; path = "../Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CF309E071D8AA6DE0071B086 /* Author+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Author+CoreDataClass.swift"; path = "../Author+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CF309E091D8AA6DE0071B086 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataClass.swift"; path = "../Book+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CF8CFE991DA1AA6D00C4C9A5 /* CoreDataCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCollectionViewController.swift; sourceTree = "<group>"; };
 		CFAE6FFC1D99A84E0021D99F /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		CFAE6FFD1D99A84E0021D99F /* BookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookViewController.xib; sourceTree = "<group>"; };
 		CFAE70121D9FCA1D0021D99F /* PdfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PdfViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		CF309DF41D8A8FB10071B086 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CF8CFE991DA1AA6D00C4C9A5 /* CoreDataCollectionViewController.swift */,
 				CF309DF11D8A8FA30071B086 /* CoreDataTableViewController.swift */,
 				CFF645BB1D90932F0028925B /* BookTableViewController.swift */,
 				CFAE6FFC1D99A84E0021D99F /* BookViewController.swift */,
@@ -370,6 +373,7 @@
 				CF309E0F1D8AA6DE0071B086 /* Cover+CoreDataClass.swift in Sources */,
 				CF309E1F1D8AA6DE0071B086 /* Pdf+CoreDataClass.swift in Sources */,
 				CFAE70141D9FCA1D0021D99F /* PdfViewController.swift in Sources */,
+				CF8CFE9A1DA1AA6D00C4C9A5 /* CoreDataCollectionViewController.swift in Sources */,
 				CFAE707C1DA06E480021D99F /* Book+CoreDataProperties.swift in Sources */,
 				CF309DEE1D8A8F830071B086 /* CoreDataStack.swift in Sources */,
 				CF309E171D8AA6DE0071B086 /* Annotation+CoreDataClass.swift in Sources */,
