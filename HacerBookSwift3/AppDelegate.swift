@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     let model = CoreDataStack(modelName: "Model", inMemory: false)!
-    
+    /*
     func tddCutreCoreData(){
         // Creo un libro
         let prueba = Book(title: "Prueba", imgUrl: "img", pdfUrl: "url", inContext: model.context)
@@ -82,13 +82,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //---- Esto es hasta aqui
         
     }
-
+    */
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // For testing 
+        var defaultBook: Book? = nil
+        
+        // For testing
         try! model.dropAllData()
         
-        //tddCutreCoreData()
+        
        
         
         // <<<< Carga de json
@@ -145,6 +148,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             }
                             theAuthor?.addToBook(oneBook)
                         }
+                        // De momento para probar un libro por defecto
+                        if (defaultBook==nil){
+                            defaultBook = oneBook
+                        }
                         
                     }
                 }
@@ -175,9 +182,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Creamos el navegador
         let navVC = UINavigationController(rootViewController: nVC)
         
+        //let bookVC = BookViewController(model: defaultBook!)
+        
+        //let navBook = UINavigationController(rootViewController: bookVC)
+        
+        //let splitVc = UISplitViewController()
+        //splitVc.viewControllers = [navVC,navBook]
+        
+        
         // La window
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navVC
+        
         window?.makeKeyAndVisible()
         
         

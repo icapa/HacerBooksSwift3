@@ -39,10 +39,16 @@ public class Book: NSManagedObject {
             self.isFavorite = false
             // Imagen vacia
             self.cover = Cover(book: self, inContext: context)
+            
+            //
+            setupKVO()
         }
         else{
             self.init(entity: entity, insertInto: nil)
         }
+    }
+    public override func prepareForDeletion() {
+        tearDownKVO()
     }
     
 }
