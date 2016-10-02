@@ -138,25 +138,4 @@ extension Book{
     
 }
 
-//MARK: - Lifecycle
-extension Book{
-    // Se llama una sola vez
-    
-    public override func awakeFromInsert() {
-        super.awakeFromInsert()
-        setupKVO()
-    }
-    
-    
-    // Se llama varias veces
-    public override func awakeFromFetch() {
-        super.awakeFromFetch()
-        setupKVO()
-    }
-    
-    public override func willTurnIntoFault() {
-        super.willTurnIntoFault()
-        tearDownKVO()
-    }
-}
 

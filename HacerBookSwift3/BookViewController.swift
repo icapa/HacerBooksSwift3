@@ -33,11 +33,7 @@ class BookViewController: UIViewController {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var imageBook: UIImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -75,7 +71,7 @@ class BookViewController: UIViewController {
     }
     
     
-    //MARK: Loads
+    //MARK: - LifeCycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         syncModelWithView()
@@ -115,5 +111,7 @@ extension BookViewController {
             return (book.cover?.image!)!
         }
     }
+
+    
 }
 

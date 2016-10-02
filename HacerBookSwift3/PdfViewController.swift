@@ -26,15 +26,7 @@ class PdfViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        syncModelWithView()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -92,3 +84,57 @@ extension PdfViewController{
 
     
 }
+//MARK: - Lifecycle & KCO
+extension PdfViewController{
+    // Se llama una sola vez
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupKVO()
+        syncModelWithView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tearDownKVO()
+    }
+    
+    
+    static func observableKeys() -> [String] {return ["pdf"]};
+    func setupKVO(){
+        // alta en las notificaciones
+        // para algunas propiedades
+        // Deberes: Usar una la funcion map
+        for key in PdfViewController.observableKeys(){
+            
+            _model.addObserver(self,
+                                      forKeyPath: key,
+                                      options: [],
+                                      context: nil)
+        }
+    }
+    
+    func tearDownKVO(){
+        // Baja en todas las notificaciones
+        for key in PdfViewController.observableKeys(){
+            _model.removeObserver(self,
+                                       forKeyPath: key)
+        }
+    }
+    
+    
+    
+    
+    public override func observeValue(forKeyPath keyPath: String?,
+                                      of object: Any?,
+                                      change: [NSKeyValueChangeKey : Any]?,
+                                      context: UnsafeMutableRawPointer?) {
+        
+        
+        syncModelWithView()
+    }
+}
+

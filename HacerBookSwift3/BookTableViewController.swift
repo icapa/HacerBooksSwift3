@@ -30,7 +30,7 @@ extension BookTableViewController{
         self.searchController.searchBar.sizeToFit()
         self.searchController.hidesNavigationBarDuringPresentation = false
         //self.searchController.searchBar.scopeButtonTitles = ["Titulo", "Tag", "Autor"]
-        self.searchController.searchBar.delegate = self
+        //self.searchController.searchBar.delegate = self
         self.tableView.tableHeaderView = searchController.searchBar
         
         
@@ -163,40 +163,6 @@ extension BookTableViewController: UISearchResultsUpdating {
             NSFetchedResultsController<NSFetchRequestResult>
         self.tableView.reloadData()
         
-    }
-    /*
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
-        
-        self.filteredBooks.removeAll()
-        
-        switch (scope){
-        case "Titulo":
-            if let booksByTitle = Book.filterByTitle(title: searchText, inContext: (self.model?.context)!) {
-                self.filteredBooks.append(contentsOf: booksByTitle)
-            }
-            break
-        case "Tag":
-            if let booksByTag = Tag.filterByTag(tag: searchText, inContext: (self.model?.context)!) {
-                self.filteredBooks.append(contentsOf: booksByTag)
-            }
-            break
-            //        case "Autor":
-            //            if let booksByAuthor = Author.filterByAuthor(author: searchText, inContext: (self.model?.context)!) {
-            //            }
-        //            break
-        default:
-            break
-        }
-        
-        self.tableView.reloadData()
-    }
-    */
-}
-
-extension BookTableViewController: UISearchBarDelegate {
-    private func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        /*filterContentForSearchText(searchText: searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
-        */
     }
 }
 
