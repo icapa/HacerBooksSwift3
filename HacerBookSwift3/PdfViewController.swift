@@ -10,6 +10,7 @@ import UIKit
 
 class PdfViewController: UIViewController {
 
+    @IBOutlet weak var waitPdf: UIActivityIndicatorView!
     @IBOutlet weak var addNoteAction: UIBarButtonItem!
     @IBAction func viewNoteAction(_ sender: AnyObject) {
     }
