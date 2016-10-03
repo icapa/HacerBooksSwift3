@@ -122,8 +122,7 @@ extension BookTableViewController{
         let bookTag = fetchedResultsController?.object(at: indexPath) as! BookTag
         let book = bookTag.book!
         let bookVC = BookViewController(model: book)
-        // Guardamos
-        saveIdObjectInDefaults(withModel: book)
+       
         navigationController?.pushViewController(bookVC, animated: true)
     }
     

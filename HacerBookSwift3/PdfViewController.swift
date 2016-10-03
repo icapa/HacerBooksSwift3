@@ -95,6 +95,8 @@ extension PdfViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupKVO()
+        // Guardamos
+        saveIdObjectInDefaults(withModel: _model)
         syncModelWithView()
     }
     

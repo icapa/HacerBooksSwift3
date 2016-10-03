@@ -12,6 +12,8 @@ class BookViewController: UIViewController {
 
     var _model: Book
     
+    var isFirstLoad : Bool = true
+    
     init(model: Book){
         _model = model
         super.init(nibName: nil, bundle: nil)
@@ -23,6 +25,8 @@ class BookViewController: UIViewController {
         syncModelWithView()
     }
     @IBAction func readPdf(_ sender: AnyObject) {
+        // Guardo el libro que estamos leyendo
+        saveIdObjectInDefaults(withModel: _model)
         let pdfVC = PdfViewController(model: _model)
         navigationController?.pushViewController(pdfVC, animated: true)
     }
@@ -40,7 +44,23 @@ class BookViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        /* Si habia un libro abierto por defecto */
+        if (isFirstLoad==true){
+            isFirstLoad = false
+            let model_contex = _model.managedObjectContext
+            let defaultBook = loadIdObjectDefaults(inContext: model_contex)
+            
+            if (defaultBook != nil){
+                let pdfVC = PdfViewController(model: defaultBook!)
+                navigationController?.pushViewController(pdfVC, animated: true)
+            }
+        }
+        
+    }
 
+    
+    
     //MARK: Init
     
     
