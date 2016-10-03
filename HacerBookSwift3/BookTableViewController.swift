@@ -92,6 +92,7 @@ extension BookTableViewController{
         let theBookTag = fetchedResultsController?.object(at: indexPath) as! BookTag
         let book = theBookTag.book
         
+        book?.setupKVO()    // Activo
         
         var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
         if cell == nil{

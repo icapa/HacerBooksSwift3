@@ -41,7 +41,7 @@ public class Book: NSManagedObject {
             self.cover = Cover(book: self, inContext: context)
             
             //
-            setupKVO()
+            
         }
         else{
             self.init(entity: entity, insertInto: nil)
