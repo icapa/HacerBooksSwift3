@@ -105,9 +105,6 @@ extension BookTableViewController{
         
         cell?.imageView?.image = self.downloadCover(ofBook:
             (book)!)
-
-        
-       
         
         return cell!
     }
@@ -121,6 +118,12 @@ extension BookTableViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let bookTag = fetchedResultsController?.object(at: indexPath) as! BookTag
         let book = bookTag.book!
+        
+        
+        // Guardamos
+        saveIdObjectInDefaults(withModel: book)
+        
+
         let bookVC = BookViewController(model: book)
        
         navigationController?.pushViewController(bookVC, animated: true)

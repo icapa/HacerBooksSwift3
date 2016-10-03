@@ -263,8 +263,12 @@ func loadIdObjectDefaults(inContext context : NSManagedObjectContext?)->Book?{
     if (myObjectId == nil){
         return nil
     }
-    let myObject = try! context?.existingObject(with: myObjectId!)
-    let theBook = myObject as? Book
-    return theBook
-
+    do{
+        let myObject = try context?.existingObject(with: myObjectId!)
+        let theBook = myObject as? Book
+        return theBook
+    }
+    catch{
+        return nil
+    }
 }

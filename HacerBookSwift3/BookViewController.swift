@@ -44,23 +44,6 @@ class BookViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        /* Si habia un libro abierto por defecto */
-        if (isFirstLoad==true){
-            isFirstLoad = false
-            let model_contex = _model.managedObjectContext
-            let defaultBook = loadIdObjectDefaults(inContext: model_contex)
-            
-            if (defaultBook != nil){
-                let pdfVC = PdfViewController(model: defaultBook!)
-                navigationController?.pushViewController(pdfVC, animated: true)
-            }
-        }
-        
-    }
-
-    
-    
     //MARK: Init
     
     
@@ -70,7 +53,7 @@ class BookViewController: UIViewController {
     
     //MARK: Sync
     func syncModelWithView(){
-        self.tagsLabel.text = _model.listOfTags
+        self.tagsLabel.text = _model.bookTagsToString()
         self.authorLabel.text = Author.authorsToString(theAuthors: _model.author!)
         self.titleLabel.text = _model.title!
         
@@ -95,6 +78,10 @@ class BookViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         syncModelWithView()
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.isTranslucent=false
     }
     
 }

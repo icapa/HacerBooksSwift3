@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <webView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wny-Fo-eeG">
-                    <frame key="frameInset" minY="38" width="375" height="542"/>
+                    <frame key="frameInset" width="375" height="623"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </webView>
@@ -33,7 +33,11 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Wqx-8t-uIB"/>
-                        <barButtonItem systemItem="add" id="oTz-xu-a91"/>
+                        <barButtonItem systemItem="add" id="oTz-xu-a91">
+                            <connections>
+                                <action selector="addNoteAction:" destination="-1" id="MEK-Nh-SyX"/>
+                            </connections>
+                        </barButtonItem>
                     </items>
                 </toolbar>
             </subviews>

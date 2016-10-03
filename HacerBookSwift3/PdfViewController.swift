@@ -7,15 +7,44 @@
 //
 
 import UIKit
+import CoreData
 
 class PdfViewController: UIViewController {
-
-    @IBOutlet weak var waitPdf: UIActivityIndicatorView!
+    var _model: Book
+    
+    var numComments = 0
+    
+    @IBAction func addNoteAction(_ sender: AnyObject) {
+        let theNote = Annotation(withBook: _model, inContext: _model.managedObjectContext!)
+        let noteVC = NotesViewController(model: theNote)
+        self.navigationController?.pushViewController(noteVC, animated: true)
+        
+    }
+    
     @IBOutlet weak var addNoteAction: UIBarButtonItem!
     @IBAction func viewNoteAction(_ sender: AnyObject) {
+        
+        let fr = NSFetchRequest<Annotation>(entityName: Annotation.entityName)
+        fr.fetchBatchSize = 50
+        fr.sortDescriptors = [NSSortDescriptor(key: "modificationDate",ascending: false)]
+        
+        
+        let fc = NSFetchedResultsController(fetchRequest: fr,
+                                            managedObjectContext: _model.managedObjectContext!,
+                                            sectionNameKeyPath: nil, cacheName: nil)
+        
+        // Create viewController
+        
+               
+        let nVC = NotesTableViewController(fetchedResultsController: fc as! NSFetchedResultsController<NSFetchRequestResult>, style: .plain)
+        
+        self.navigationController?.pushViewController(nVC, animated: true)
+        
+        
+        
     }
     @IBOutlet weak var pdfView: UIWebView!
-    var _model: Book
+   
     
     //MARK: Init
     init(model: Book){
@@ -90,13 +119,13 @@ extension PdfViewController{
     // Se llama una sola vez
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isTranslucent=false
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupKVO()
-        // Guardamos
-        saveIdObjectInDefaults(withModel: _model)
+       
         syncModelWithView()
     }
     

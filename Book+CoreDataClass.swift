@@ -26,8 +26,8 @@ import UIKit
 
 public class Book: NSManagedObject {
     static let entityName = "Book"
-    public var listOfTags : String = ""
     
+    let model = CoreDataStack(modelName: "Model", inMemory: false)!
     
     convenience init (title: String, imgUrl: String, pdfUrl: String, inContext context: NSManagedObjectContext){
         let entity = NSEntityDescription.entity(forEntityName: Book.entityName, in: context)!
@@ -73,7 +73,8 @@ extension Book{
                             theTag: favTag!,
                             inContext: self.managedObjectContext!)
             
-                try! self.managedObjectContext?.save()
+                //try! self.managedObjectContext?.save()
+                model.save()
             }
             
         
@@ -82,11 +83,12 @@ extension Book{
             let theBookTag = BookTag.favoriteBookTag(ofBook: self,inContext: self.managedObjectContext)
             if (theBookTag != nil){
                 
-                theBookTag?.tag=nil
-                theBookTag?.book=nil
-                //theBookTag?.tag?.removeFromBookTag(theBookTag!)
+                //theBookTag?.tag=nil
+                //theBookTag?.book=nil
                 
-                try! self.managedObjectContext?.save()
+                self.managedObjectContext?.delete(theBookTag!)
+                //try! self.managedObjectContext?.save()
+                model.save()
             }
             
         }
@@ -143,6 +145,22 @@ extension Book{
     }
     
 }
+//MARK: - Presentation
+extension Book{
+    func bookTagsToString()->String{
+        let losBookTag = BookTag.tagsForBook(theBook: self, inContext: self.managedObjectContext)
+        if (losBookTag == nil){
+            return ""
+        }
+        var auxString=""
+        for each in losBookTag!{
+            auxString.append((each.tag?.realTagName)!)
+            auxString.append(" ")
+        }
+        return auxString
+    }
+}
+
 //MARK: - Serialization object
 extension Book{
     func archiveURIRepresentation() -> NSData? {

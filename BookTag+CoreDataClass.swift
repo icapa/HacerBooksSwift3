@@ -71,8 +71,8 @@ extension BookTag{
     static func tagsForBook(theBook : Book,
                             inContext context: NSManagedObjectContext?)->[BookTag]?{
         let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
-        fr.sortDescriptors = [NSSortDescriptor.init(key: "tag", ascending: true)]
-        //fr.predicate = NSPredicate(format: "book == %@", theBook)
+        fr.sortDescriptors = [NSSortDescriptor.init(key: "tag.tagName", ascending: true)]
+        fr.predicate = NSPredicate(format: "book.title == %@", theBook.title!)
         
         do{
             let result = try context?.fetch(fr)
