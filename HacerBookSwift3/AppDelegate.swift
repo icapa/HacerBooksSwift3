@@ -102,6 +102,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("Data couldn't be load")
         }
         
+        
+        
         // Process JSON File and fill CoreData, backgound
         if (isFirstLaunch()==true){
             markFirstLaunch(to: false)

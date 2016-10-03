@@ -56,5 +56,13 @@ extension NotesTableViewController{
         return cell!
 
     }
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let theNote = fetchedResultsController?.object(at: indexPath) as! Annotation
+        
+        let nVC = NotesViewController(model: theNote)
+        self.navigationController?.pushViewController(nVC, animated: true)
+        
+    }
 }
+
+

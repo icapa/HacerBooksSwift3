@@ -7,9 +7,21 @@
 //
 
 import UIKit
+import CoreLocation
 
 class NotesViewController: UIViewController {
-
+    
+    let locationManager = CLLocationManager()
+    
+    @IBAction func guardarPosicionGps(_ sender: AnyObject) {
+        
+        
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        
+    }
     @IBOutlet weak var noteImageView: UIImageView!
     @IBAction func takePhoto(_ sender: AnyObject) {
         // Crear una instancia de UIImagePicker
@@ -80,11 +92,11 @@ class NotesViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        _model.modificationDate = NSDate()
         syncViewWithModel()
     }
     
 }
+//MARK: - Image Picker
 extension NotesViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         self.dismiss(animated: true){}
@@ -96,5 +108,20 @@ extension NotesViewController: UIImagePickerControllerDelegate,UINavigationContr
             _model.photo = laFoto
             syncViewWithModel()
         }
+    }
+}
+
+//MARK: - LocationManager
+extension NotesViewController: CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        // Se para, que no consume
+        locationManager.stopUpdatingLocation()
+        // Pillamos la ultima posicion
+        let posicion = locations.last
+        print("La posicion es %@",posicion)
+        // Lo metemos en CoreData
+        
+        
     }
 }
