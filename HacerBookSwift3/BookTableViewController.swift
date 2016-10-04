@@ -174,11 +174,13 @@ extension BookTableViewController: UISearchResultsUpdating {
         
         // Hay que cambiar el fetch request
         let busqueda = searchController.searchBar.text
+        print ("Buscando %@",busqueda)
         
         let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
         fr.fetchBatchSize = 50
         fr.sortDescriptors = [NSSortDescriptor(key: "tag.tagName",ascending: true),
                               NSSortDescriptor(key: "book.title",ascending: true)]
+        
         if (busqueda! != ""){
             let bookPredicate = NSPredicate(format: "book.title CONTAINS [cd] %@",busqueda!)
             let tagPredicate = NSPredicate(format: "tag.tagName CONTAINS [cd] %@",busqueda!)
@@ -186,6 +188,11 @@ extension BookTableViewController: UISearchResultsUpdating {
             let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [bookPredicate,tagPredicate,tagAuthor])
             fr.predicate = predicate
         }
+        
+        
+        
+        
+        
         
         let model_context = self.fetchedResultsController?.managedObjectContext
         
