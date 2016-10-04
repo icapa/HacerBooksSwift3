@@ -21,7 +21,14 @@ struct CoreDataStack {
     fileprivate var inMemory: Bool = false
  
     
-   
+    private static var _defaultStack : CoreDataStack?
+    static func defaultStack(modelName: String, inMemory: Bool=false) ->CoreDataStack?{
+        guard _defaultStack != nil else{
+            _defaultStack = CoreDataStack(modelName: modelName,inMemory: inMemory)
+            return _defaultStack
+        }
+        return _defaultStack
+    }
 
     
     

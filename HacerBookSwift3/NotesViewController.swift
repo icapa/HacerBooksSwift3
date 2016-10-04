@@ -11,6 +11,7 @@ import CoreLocation
 
 class NotesViewController: UIViewController {
     
+    @IBOutlet weak var gpsStatus: UIImageView!
     let locationManager = CLLocationManager()
     
     @IBAction func guardarPosicionGps(_ sender: AnyObject) {
@@ -73,8 +74,12 @@ class NotesViewController: UIViewController {
             self.noteImageView.image = (_model.photo?.image)!
             
         }
-
+        
+        if (_model.localization != nil){
+            self.gpsStatus.image = UIImage(named: "posicion_gps.png")
+        }
     }
+    
     func syncViewWithModel(){
         _model.title = self.titleView.text
         _model.text = self.noteTextView.text
@@ -88,7 +93,7 @@ class NotesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isTranslucent=false
-        // Do any additional setup after loading the view.
+                
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -96,6 +101,8 @@ class NotesViewController: UIViewController {
     }
     
 }
+
+
 //MARK: - Image Picker
 extension NotesViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -119,9 +126,16 @@ extension NotesViewController: CLLocationManagerDelegate{
         locationManager.stopUpdatingLocation()
         // Pillamos la ultima posicion
         let posicion = locations.last
-        print("La posicion es %@",posicion)
-        // Lo metemos en CoreData
         
+        // Lo metemos en CoreData
+        var savePosition = Localization.exists(position: posicion!, inContext: _model.managedObjectContext)
+        if (savePosition == nil){
+            // No existe creamos 
+            savePosition = Localization(withPosition: posicion!, inContext: _model.managedObjectContext!)
+        }
+        // Asignamos a la nota
+        savePosition?.addToAnnotation(_model)
+        syncModelWithView()
         
     }
 }

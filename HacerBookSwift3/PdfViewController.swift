@@ -27,7 +27,7 @@ class PdfViewController: UIViewController {
         let fr = NSFetchRequest<Annotation>(entityName: Annotation.entityName)
         fr.fetchBatchSize = 50
         fr.sortDescriptors = [NSSortDescriptor(key: "modificationDate",ascending: false)]
-        
+        fr.predicate = NSPredicate(format: "book == %@", _model)
         
         let fc = NSFetchedResultsController(fetchRequest: fr,
                                             managedObjectContext: _model.managedObjectContext!,

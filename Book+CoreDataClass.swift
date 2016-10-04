@@ -27,7 +27,8 @@ import UIKit
 public class Book: NSManagedObject {
     static let entityName = "Book"
     
-    let model = CoreDataStack(modelName: "Model", inMemory: false)!
+    
+    let model = CoreDataStack.defaultStack(modelName: "Model", inMemory: false)!
     
     convenience init (title: String, imgUrl: String, pdfUrl: String, inContext context: NSManagedObjectContext){
         let entity = NSEntityDescription.entity(forEntityName: Book.entityName, in: context)!

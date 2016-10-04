@@ -254,7 +254,9 @@ func saveIdObjectInDefaults(withModel model: Book){
 
 func loadIdObjectDefaults(inContext context : NSManagedObjectContext?)->Book?{
         
-    
+    if (UserDefaults.standard.value(forKey: BOOK_SAVED) == nil){
+        return nil
+    }
     let myObjectUrl = NSURL(string: UserDefaults.standard.value(forKey: BOOK_SAVED) as! String)
     if (myObjectUrl == nil){
         return nil

@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class BookTableViewController: CoreDataTableViewController, UISearchControllerDelegate {
-    let model = CoreDataStack(modelName: "Model", inMemory: false)
+    let model = CoreDataStack.defaultStack(modelName: "Model", inMemory: false)!
     let searchController = UISearchController(searchResultsController: nil)
     
     var isfirstLoad : Bool = true
@@ -151,7 +151,7 @@ extension BookTableViewController {
                     }
                     else{
                         book.cover?.photoData = imageData as NSData?
-                        self.model?.save()
+                        self.model.save()
                         self.tableView.reloadData()
                         
                         //try! book.managedObjectContext?.save()
@@ -196,6 +196,8 @@ extension BookTableViewController: UISearchResultsUpdating {
         
     }
 }
+
+
 
 
 

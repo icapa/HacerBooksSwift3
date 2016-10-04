@@ -13,6 +13,8 @@ class NotesTableViewController: CoreDataTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Añado un botón para que cargue e
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Map", style: .done, target: self, action: #selector(loadMap))
 
         // Do any additional setup after loading the view.
     }
@@ -24,6 +26,15 @@ class NotesTableViewController: CoreDataTableViewController {
     
 
     
+}
+
+//MARK - Actions
+extension NotesTableViewController{
+    func loadMap(){
+        let mapVc = MapViewController(model: self.fetchedResultsController!)
+        self.navigationController?.pushViewController(mapVc, animated: true)
+        
+    }
 }
 
 //MARK: - Data Source
@@ -62,6 +73,17 @@ extension NotesTableViewController{
         let nVC = NotesViewController(model: theNote)
         self.navigationController?.pushViewController(nVC, animated: true)
         
+    }
+}
+
+//MARK: - Row deleting
+extension NotesTableViewController{
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete){
+            let elObjeto = fetchedResultsController?.object(at: indexPath) as! Annotation
+            elObjeto.managedObjectContext?.delete(elObjeto)
+            tableView.reloadData()
+        }
     }
 }
 

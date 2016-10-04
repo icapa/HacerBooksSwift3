@@ -17,72 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     
-    let model = CoreDataStack(modelName: "Model", inMemory: false)!
-    /*
-    func tddCutreCoreData(){
-        // Creo un libro
-        let prueba = Book(title: "Prueba", imgUrl: "img", pdfUrl: "url", inContext: model.context)
-        let prueba2 = Book(title: "Prueba2", imgUrl: "img", pdfUrl: "url", inContext: model.context)
-        // Creo un tag
-        let tag1 = Tag(tag: "tag1", inContext: model.context)
-        _ = BookTag(theBook: prueba, theTag: tag1, inContext: model.context)
-        _ = BookTag(theBook: prueba2, theTag: tag1, inContext: model.context)
-        
-        let tag2 = Tag(tag: "tag2", inContext: model.context)
-        _ = BookTag(theBook: prueba, theTag: tag2, inContext: model.context)
-        _ = BookTag(theBook: prueba2, theTag: tag2, inContext: model.context)
-        
-        model.save()
-        
-        //---- Añado los dos a los favoritos
-        
-        var favTag = Tag.tagForString("favorite", inContext: prueba.managedObjectContext)
-        if (favTag==nil){
-            // No existe el tag hay que crearlo
-            favTag = Tag(tag: "favorite", inContext: prueba.managedObjectContext!)
-        }
-        if (BookTag.isBookInFavororites(theBook: prueba,
-                                        theTags: favTag!,
-                                        inContext: prueba.managedObjectContext)==false){
-            _ = BookTag(theBook: prueba,
-                        theTag: favTag!,
-                        inContext: prueba.managedObjectContext!)
-            
-            try! prueba.managedObjectContext?.save()
-        }
-
-        
-        
-        var favTag1 = Tag.tagForString("favorite", inContext: prueba2.managedObjectContext)
-        if (favTag1==nil){
-            // No existe el tag hay que crearlo
-            favTag1 = Tag(tag: "favorite", inContext: prueba2.managedObjectContext!)
-        }
-        if (BookTag.isBookInFavororites(theBook: prueba2,
-                                        theTags: favTag1!,
-                                        inContext: prueba2.managedObjectContext)==false){
-            _ = BookTag(theBook: prueba2,
-                        theTag: favTag1!,
-                        inContext: prueba2.managedObjectContext!)
-            
-            try! prueba2.managedObjectContext?.save()
-        }
-
-        
-        
-        
-        
-        
-        
-        
-        
-        model.save()
-        
-        
-        //---- Esto es hasta aqui
-        
-    }
-    */
+    let model = CoreDataStack.defaultStack(modelName: "Model", inMemory: false)!
+    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
