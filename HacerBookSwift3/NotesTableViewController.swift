@@ -60,7 +60,8 @@ extension NotesTableViewController{
         cell?.detailTextLabel?.text = fmt.string(from: theNote.modificationDate as! Date)
         
         if (theNote.photo?.photoData != nil){
-            cell?.imageView?.image = theNote.photo?.image
+            let imgResize = theNote.photo?.image?.resizeWith(width: 100.0)
+            cell?.imageView?.image = imgResize
         }
         
         

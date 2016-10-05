@@ -99,7 +99,7 @@ extension PdfViewController{
                                          inContext: book.managedObjectContext!)
                         // Create the link
                         book.pdf = thePdf
-                        try! book.managedObjectContext?.save()
+                        //try! book.managedObjectContext?.save()
                         
                     }
                 }

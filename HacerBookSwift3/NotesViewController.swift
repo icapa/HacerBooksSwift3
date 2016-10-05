@@ -10,6 +10,16 @@ import UIKit
 import CoreLocation
 
 class NotesViewController: UIViewController {
+    @IBAction func shareNote(_ sender: AnyObject) {
+        // Hay que compartir la nota por email
+        let objectsToShare: [AnyObject] = [_model.title as AnyObject,_model.text as AnyObject,(_model.photo?.image)!]
+        let uiAct = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        
+        uiAct.popoverPresentationController?.sourceView = self.view
+        
+        self.present(uiAct, animated: true, completion: nil)
+        
+    }
     
     @IBOutlet weak var gpsStatus: UIImageView!
     let locationManager = CLLocationManager()
@@ -71,7 +81,9 @@ class NotesViewController: UIViewController {
         self.titleView.text = _model.title
         self.noteTextView.text = _model.text
         if (_model.photo?.image != nil){
-            self.noteImageView.image = (_model.photo?.image)!
+            let w = self.noteImageView.bounds.width
+            let imgResize = _model.photo?.image!.resizeWith(width: w)
+            self.noteImageView.image = imgResize
             
         }
         
@@ -93,7 +105,7 @@ class NotesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isTranslucent=false
-                
+        self.title = "Annotations"
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

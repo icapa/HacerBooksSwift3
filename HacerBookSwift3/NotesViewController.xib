@@ -29,10 +29,16 @@
                                 <action selector="takePhoto:" destination="-1" id="Gec-nU-4f8"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="5tP-cT-wTY"/>
-                        <barButtonItem title="Guardar Posición" id="VKO-Cr-qCS">
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="bZI-1P-AsI"/>
+                        <barButtonItem title="Localización" id="VKO-Cr-qCS">
                             <connections>
                                 <action selector="guardarPosicionGps:" destination="-1" id="xsn-fS-sdw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="eqE-NH-Voe"/>
+                        <barButtonItem systemItem="action" id="VAN-u2-sCv">
+                            <connections>
+                                <action selector="shareNote:" destination="-1" id="Djj-Bu-0DE"/>
                             </connections>
                         </barButtonItem>
                     </items>

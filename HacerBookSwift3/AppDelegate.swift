@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     
-    let model = CoreDataStack.defaultStack(modelName: "Model", inMemory: false)!
+    let model = CoreDataStack.defaultStack(modelName: "Model")!
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

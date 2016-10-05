@@ -75,7 +75,7 @@ extension Book{
                             inContext: self.managedObjectContext!)
             
                 //try! self.managedObjectContext?.save()
-                model.save()
+                //model.save()
             }
             
         
@@ -89,7 +89,7 @@ extension Book{
                 
                 self.managedObjectContext?.delete(theBookTag!)
                 //try! self.managedObjectContext?.save()
-                model.save()
+                //model.save()
             }
             
         }

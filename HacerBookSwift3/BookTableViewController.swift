@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 
 class BookTableViewController: CoreDataTableViewController, UISearchControllerDelegate {
-    let model = CoreDataStack.defaultStack(modelName: "Model", inMemory: false)!
     let searchController = UISearchController(searchResultsController: nil)
     
     var isfirstLoad : Bool = true
@@ -103,6 +102,7 @@ extension BookTableViewController{
         cell?.detailTextLabel?.text = Author.authorsToString(theAuthors:
             (book?.author))
         
+        
         cell?.imageView?.image = self.downloadCover(ofBook:
             (book)!)
         
@@ -151,11 +151,7 @@ extension BookTableViewController {
                     }
                     else{
                         book.cover?.photoData = imageData as NSData?
-                        self.model.save()
                         self.tableView.reloadData()
-                        
-                        //try! book.managedObjectContext?.save()
-                        
                     }
                 }
             }
@@ -163,8 +159,10 @@ extension BookTableViewController {
             return UIImage(data: theDefaultData)!
         }
         else{
-            return (book.cover?.image!)!
+            let imgResize = book.cover?.image?.resizeWith(width: 50.0)
+            return imgResize!
         }
+        
     }
 }
 //MARK: Searching Bar
@@ -204,7 +202,10 @@ extension BookTableViewController: UISearchResultsUpdating {
     }
 }
 
-
+extension BookTableViewController: UISearchBarDelegate {
+    private func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+    }
+}
 
 
 

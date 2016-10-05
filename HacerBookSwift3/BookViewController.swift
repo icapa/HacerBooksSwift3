@@ -81,6 +81,7 @@ class BookViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Book details"
         self.navigationController?.navigationBar.isTranslucent=false
     }
     
@@ -106,7 +107,7 @@ extension BookViewController {
                         book.cover?.photoData = imageData as NSData?
                         
                         
-                        try! book.managedObjectContext?.save()
+                        //try! book.managedObjectContext?.save()
                         self.imageBook.image = book.cover?.image
                         
                     }
@@ -116,7 +117,10 @@ extension BookViewController {
             return UIImage(data: theDefaultData)!
         }
         else{
-            return (book.cover?.image!)!
+            let w = self.imageBook.bounds.width
+            let imgResize = book.cover?.image?.resizeWith(width: w)
+            return imgResize!
+            //return (book.cover?.image!)!
         }
     }
 
