@@ -33,12 +33,29 @@ class PdfViewController: UIViewController {
                                             managedObjectContext: _model.managedObjectContext!,
                                             sectionNameKeyPath: nil, cacheName: nil)
         
-        // Create viewController
-        
-               
+        // Create Table viewController
+        /*
         let nVC = NotesTableViewController(fetchedResultsController: fc as! NSFetchedResultsController<NSFetchRequestResult>, style: .plain)
         
         self.navigationController?.pushViewController(nVC, animated: true)
+        */
+        
+        // Creamos el layour
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 140, height: 150)
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        layout.sectionInset=UIEdgeInsets(top: 10,
+                                         left: 10,
+                                         bottom: 10,
+                                         right: 10)
+        
+        // Creamos el CollectionViewController
+        let cv = NotesCollectionViewController(fetchedResultsController: fc as! NSFetchedResultsController<NSFetchRequestResult>,
+                                               layout: layout)
+        
+        self.navigationController?.pushViewController(cv , animated: true)
         
         
         
