@@ -169,12 +169,10 @@ extension NotesViewController: CLLocationManagerDelegate{
 extension NotesViewController: UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
         self.mustSave = true
-        
     }
 }
 extension NotesViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
         self.mustSave = true
-        
     }
 }
