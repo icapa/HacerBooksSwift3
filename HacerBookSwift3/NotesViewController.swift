@@ -10,6 +10,9 @@ import UIKit
 import CoreLocation
 
 class NotesViewController: UIViewController {
+    
+    var mustSave : Bool = false
+    
     @IBAction func shareNote(_ sender: AnyObject) {
         // Hay que compartir la nota por email
         let objectsToShare: [AnyObject] = [_model.title as AnyObject,_model.text as AnyObject,(_model.photo?.image)!]
@@ -100,7 +103,11 @@ class NotesViewController: UIViewController {
     //MARK: - LifeCycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.noteTextView.delegate = self
+        self.titleView.delegate = self
         syncModelWithView()
+        
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,10 +116,14 @@ class NotesViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        if (self.mustSave == true){
         // Prueba para evitar la cascada
-        syncViewWithModel()
-        self._model.managedObjectContext?.processPendingChanges()
+            syncViewWithModel()
+            self._model.managedObjectContext?.processPendingChanges()
+        }
     }
+    
+    
     
 }
 
@@ -150,6 +161,20 @@ extension NotesViewController: CLLocationManagerDelegate{
         // Asignamos a la nota
         savePosition?.addToAnnotation(_model)
         syncModelWithView()
+        
+    }
+}
+
+//MARK: - Delegates
+extension NotesViewController: UITextViewDelegate{
+    func textViewDidChange(_ textView: UITextView) {
+        self.mustSave = true
+        
+    }
+}
+extension NotesViewController: UITextFieldDelegate{
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        self.mustSave = true
         
     }
 }
