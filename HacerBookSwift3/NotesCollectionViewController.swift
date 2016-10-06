@@ -15,6 +15,7 @@ class NotesCollectionViewController: CoreDataCollectionViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Map", style: .done, target: self, action: #selector(loadMap))
 
     }
     
@@ -75,4 +76,13 @@ class NotesCollectionViewController: CoreDataCollectionViewController {
         self.navigationController?.pushViewController(notaVc, animated: true)
         
     }
+}
+//MARK: Actions
+extension NotesCollectionViewController{
+    func loadMap(){
+        let mapVc = MapViewController(model: self.fetchedResultsController!)
+        self.navigationController?.pushViewController(mapVc, animated: true)
+        
+    }
+
 }

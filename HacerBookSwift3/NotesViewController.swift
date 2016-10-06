@@ -110,8 +110,8 @@ class NotesViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Prueba para evitar la cascada
-        self._model.managedObjectContext?.processPendingChanges()
         syncViewWithModel()
+        self._model.managedObjectContext?.processPendingChanges()
     }
     
 }
