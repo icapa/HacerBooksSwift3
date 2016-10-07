@@ -116,6 +116,7 @@ class NotesViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         if (self.mustSave == true){
         // Prueba para evitar la cascada
             syncViewWithModel()
