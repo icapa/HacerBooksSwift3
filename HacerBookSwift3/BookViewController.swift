@@ -21,7 +21,9 @@ class BookViewController: UIViewController {
     
     @IBOutlet weak var buttonFavorite: UIButton!
     @IBAction func changeFavoritu(_ sender: AnyObject) {
-        _model.isFavorite = !_model.isFavorite
+        //_model.isFavorite = !_model.isFavorite
+        _model.favoriteSwitch()
+        
         syncModelWithView()
     }
     @IBAction func readPdf(_ sender: AnyObject) {

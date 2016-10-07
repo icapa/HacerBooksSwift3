@@ -125,7 +125,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
-        model.autoSave(5)
+        //model.autoSave(5)
         
         
         return true

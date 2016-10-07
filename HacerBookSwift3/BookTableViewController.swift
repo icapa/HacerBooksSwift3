@@ -91,7 +91,7 @@ extension BookTableViewController{
         let theBookTag = fetchedResultsController?.object(at: indexPath) as! BookTag
         let book = theBookTag.book
         
-        book?.setupKVO()    // Activo
+        //book?.setupKVO()    // Activo
         
         var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
         if cell == nil{
@@ -171,7 +171,7 @@ extension BookTableViewController: UISearchResultsUpdating {
         //filterContentForSearchText(searchText: searchController.searchBar.text!)
         
         // Hay que cambiar el fetch request
-        let busqueda = searchController.searchBar.text
+        let busqueda = searchController.searchBar.text!
         print ("Buscando %@",busqueda)
         
         let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
@@ -179,12 +179,13 @@ extension BookTableViewController: UISearchResultsUpdating {
         fr.sortDescriptors = [NSSortDescriptor(key: "tag.tagName",ascending: true),
                               NSSortDescriptor(key: "book.title",ascending: true)]
         
-        if (busqueda! != ""){
-            let bookPredicate = NSPredicate(format: "book.title CONTAINS [cd] %@",busqueda!)
-            let tagPredicate = NSPredicate(format: "tag.tagName CONTAINS [cd] %@",busqueda!)
-            let tagAuthor = NSPredicate(format: "book.author.name CONTAINS [cd] %@",busqueda!)
-            let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [bookPredicate,tagPredicate,tagAuthor])
-            fr.predicate = predicate
+        if (busqueda != ""){
+            let bookPredicate = NSPredicate(format: "book.title CONTAINS [cd] %@",busqueda)
+            let tagPredicate = NSPredicate(format: "tag.tagName CONTAINS [cd] %@",busqueda)
+            let tagAuthor = NSPredicate(format: "book.author.name CONTAINS [cd] %@",busqueda)
+            let allPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [bookPredicate,tagPredicate,tagAuthor])
+            fr.predicate = allPredicate
+            print("Buscando %@",busqueda)
         }
         
         

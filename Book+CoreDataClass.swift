@@ -56,9 +56,9 @@ public class Book: NSManagedObject {
 //MARK: -- Favorite managemente
 extension Book{
     func favoriteSwitch(){
-        if (self.isFavorite == true){
+        if (self.isFavorite == false){
             // Create a "favorite" tag
-            
+            self.isFavorite = true
             var favTag = Tag.tagForString("favorite", inContext: self.managedObjectContext)
             if (favTag==nil){
                 // No existe el tag hay que crearlo
@@ -80,16 +80,10 @@ extension Book{
             
         
         }else{
-            
+            self.isFavorite=false
             let theBookTag = BookTag.favoriteBookTag(ofBook: self,inContext: self.managedObjectContext)
             if (theBookTag != nil){
-                
-                //theBookTag?.tag=nil
-                //theBookTag?.book=nil
-                
                 self.managedObjectContext?.delete(theBookTag!)
-                //try! self.managedObjectContext?.save()
-                //model.save()
             }
             
         }
