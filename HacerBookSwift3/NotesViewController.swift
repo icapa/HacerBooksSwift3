@@ -114,6 +114,7 @@ class NotesViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent=false
         self.title = "Annotations"
     }
+    /*
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -123,7 +124,7 @@ class NotesViewController: UIViewController {
             self._model.managedObjectContext?.processPendingChanges()
         }
     }
-    
+    */
     
     
 }
@@ -168,12 +169,14 @@ extension NotesViewController: CLLocationManagerDelegate{
 
 //MARK: - Delegates
 extension NotesViewController: UITextViewDelegate{
-    func textViewDidChange(_ textView: UITextView) {
-        self.mustSave = true
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        syncViewWithModel()
     }
 }
 extension NotesViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        self.mustSave = true
+        //self.mustSave = true
+        syncViewWithModel()
     }
 }

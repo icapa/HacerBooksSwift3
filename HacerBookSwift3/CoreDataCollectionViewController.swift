@@ -148,9 +148,10 @@ extension CoreDataCollectionViewController: NSFetchedResultsControllerDelegate{
             collectionView?.reloadItems(at: [indexPath!])
             
         case .move:
-            collectionView?.deleteItems(at: [indexPath!])
-            collectionView?.insertItems(at: [newIndexPath!]
-            )
+            collectionView?.reloadItems(at: [indexPath!])
+            //collectionView?.deleteItems(at: [indexPath!])
+            //collectionView?.insertItems(at: [newIndexPath!])
+            
         }
         
         var dictionary: [NSFetchedResultsChangeType:IndexPath] = [NSFetchedResultsChangeType:IndexPath]()

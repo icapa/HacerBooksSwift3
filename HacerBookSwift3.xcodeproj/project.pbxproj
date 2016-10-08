@@ -19,15 +19,6 @@
 		CF13EB0C1DA42A4400FF5DF0 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF13EB0A1DA42A4400FF5DF0 /* MapViewController.xib */; };
 		CF13EB0F1DA4485400FF5DF0 /* Marks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13EB0E1DA4485400FF5DF0 /* Marks.swift */; };
 		CF13EB111DA45B8900FF5DF0 /* posicion_gps.png in Resources */ = {isa = PBXBuildFile; fileRef = CF13EB101DA45B8900FF5DF0 /* posicion_gps.png */; };
-		CF13EB1B1DA4657F00FF5DF0 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13EB121DA4657F00FF5DF0 /* Tag+CoreDataProperties.swift */; };
-		CF13EB1C1DA4657F00FF5DF0 /* Annotation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13EB131DA4657F00FF5DF0 /* Annotation+CoreDataProperties.swift */; };
-		CF13EB1D1DA4657F00FF5DF0 /* BookTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13EB141DA4657F00FF5DF0 /* BookTag+CoreDataProperties.swift */; };
-		CF13EB1E1DA4657F00FF5DF0 /* Cover+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13EB151DA4657F00FF5DF0 /* Cover+CoreDataProperties.swift */; };
-		CF13EB1F1DA4657F00FF5DF0 /* Localization+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13EB161DA4657F00FF5DF0 /* Localization+CoreDataProperties.swift */; };
-		CF13EB201DA4657F00FF5DF0 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13EB171DA4657F00FF5DF0 /* Photo+CoreDataProperties.swift */; };
-		CF13EB211DA4657F00FF5DF0 /* Author+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13EB181DA4657F00FF5DF0 /* Author+CoreDataProperties.swift */; };
-		CF13EB221DA4657F00FF5DF0 /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13EB191DA4657F00FF5DF0 /* Book+CoreDataProperties.swift */; };
-		CF13EB231DA4657F00FF5DF0 /* Pdf+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13EB1A1DA4657F00FF5DF0 /* Pdf+CoreDataProperties.swift */; };
 		CF309DCE1D8A8E7D0071B086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DCD1D8A8E7D0071B086 /* AppDelegate.swift */; };
 		CF309DD51D8A8E7D0071B086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF309DD41D8A8E7D0071B086 /* Assets.xcassets */; };
 		CF309DE31D8A8E7D0071B086 /* HacerBookSwift3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309DE21D8A8E7D0071B086 /* HacerBookSwift3Tests.swift */; };
@@ -54,6 +45,15 @@
 		CF309E2B1D8AA6DF0071B086 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309E091D8AA6DE0071B086 /* Book+CoreDataClass.swift */; };
 		CF309E2C1D8AA6DF0071B086 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309E091D8AA6DE0071B086 /* Book+CoreDataClass.swift */; };
 		CF8CFE9A1DA1AA6D00C4C9A5 /* CoreDataCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8CFE991DA1AA6D00C4C9A5 /* CoreDataCollectionViewController.swift */; };
+		CFADDC281DA95BBC00C30FBF /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADDC1F1DA95BBC00C30FBF /* Tag+CoreDataProperties.swift */; };
+		CFADDC291DA95BBC00C30FBF /* Localization+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADDC201DA95BBC00C30FBF /* Localization+CoreDataProperties.swift */; };
+		CFADDC2A1DA95BBC00C30FBF /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADDC211DA95BBC00C30FBF /* Photo+CoreDataProperties.swift */; };
+		CFADDC2B1DA95BBC00C30FBF /* Cover+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADDC221DA95BBC00C30FBF /* Cover+CoreDataProperties.swift */; };
+		CFADDC2C1DA95BBC00C30FBF /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADDC231DA95BBC00C30FBF /* Book+CoreDataProperties.swift */; };
+		CFADDC2D1DA95BBC00C30FBF /* Annotation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADDC241DA95BBC00C30FBF /* Annotation+CoreDataProperties.swift */; };
+		CFADDC2E1DA95BBC00C30FBF /* Author+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADDC251DA95BBC00C30FBF /* Author+CoreDataProperties.swift */; };
+		CFADDC2F1DA95BBC00C30FBF /* BookTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADDC261DA95BBC00C30FBF /* BookTag+CoreDataProperties.swift */; };
+		CFADDC301DA95BBC00C30FBF /* Pdf+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADDC271DA95BBC00C30FBF /* Pdf+CoreDataProperties.swift */; };
 		CFAE6FFE1D99A84E0021D99F /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE6FFC1D99A84E0021D99F /* BookViewController.swift */; };
 		CFAE6FFF1D99A84E0021D99F /* BookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFAE6FFD1D99A84E0021D99F /* BookViewController.xib */; };
 		CFAE70141D9FCA1D0021D99F /* PdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE70121D9FCA1D0021D99F /* PdfViewController.swift */; };
@@ -98,15 +98,6 @@
 		CF13EB0A1DA42A4400FF5DF0 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		CF13EB0E1DA4485400FF5DF0 /* Marks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marks.swift; sourceTree = "<group>"; };
 		CF13EB101DA45B8900FF5DF0 /* posicion_gps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = posicion_gps.png; sourceTree = "<group>"; };
-		CF13EB121DA4657F00FF5DF0 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		CF13EB131DA4657F00FF5DF0 /* Annotation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Annotation+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		CF13EB141DA4657F00FF5DF0 /* BookTag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BookTag+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		CF13EB151DA4657F00FF5DF0 /* Cover+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cover+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		CF13EB161DA4657F00FF5DF0 /* Localization+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Localization+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		CF13EB171DA4657F00FF5DF0 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		CF13EB181DA4657F00FF5DF0 /* Author+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Author+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		CF13EB191DA4657F00FF5DF0 /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		CF13EB1A1DA4657F00FF5DF0 /* Pdf+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pdf+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CF309DCA1D8A8E7D0071B086 /* HacerBookSwift3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HacerBookSwift3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF309DCD1D8A8E7D0071B086 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF309DD41D8A8E7D0071B086 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -127,6 +118,15 @@
 		CF309E071D8AA6DE0071B086 /* Author+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Author+CoreDataClass.swift"; path = "../Author+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CF309E091D8AA6DE0071B086 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataClass.swift"; path = "../Book+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CF8CFE991DA1AA6D00C4C9A5 /* CoreDataCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCollectionViewController.swift; sourceTree = "<group>"; };
+		CFADDC1F1DA95BBC00C30FBF /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CFADDC201DA95BBC00C30FBF /* Localization+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Localization+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CFADDC211DA95BBC00C30FBF /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CFADDC221DA95BBC00C30FBF /* Cover+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cover+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CFADDC231DA95BBC00C30FBF /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CFADDC241DA95BBC00C30FBF /* Annotation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Annotation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CFADDC251DA95BBC00C30FBF /* Author+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Author+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CFADDC261DA95BBC00C30FBF /* BookTag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BookTag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CFADDC271DA95BBC00C30FBF /* Pdf+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pdf+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CFAE6FFC1D99A84E0021D99F /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		CFAE6FFD1D99A84E0021D99F /* BookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookViewController.xib; sourceTree = "<group>"; };
 		CFAE70121D9FCA1D0021D99F /* PdfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PdfViewController.swift; sourceTree = "<group>"; };
@@ -189,15 +189,15 @@
 		CF309DC11D8A8E7D0071B086 = {
 			isa = PBXGroup;
 			children = (
-				CF13EB121DA4657F00FF5DF0 /* Tag+CoreDataProperties.swift */,
-				CF13EB131DA4657F00FF5DF0 /* Annotation+CoreDataProperties.swift */,
-				CF13EB141DA4657F00FF5DF0 /* BookTag+CoreDataProperties.swift */,
-				CF13EB151DA4657F00FF5DF0 /* Cover+CoreDataProperties.swift */,
-				CF13EB161DA4657F00FF5DF0 /* Localization+CoreDataProperties.swift */,
-				CF13EB171DA4657F00FF5DF0 /* Photo+CoreDataProperties.swift */,
-				CF13EB181DA4657F00FF5DF0 /* Author+CoreDataProperties.swift */,
-				CF13EB191DA4657F00FF5DF0 /* Book+CoreDataProperties.swift */,
-				CF13EB1A1DA4657F00FF5DF0 /* Pdf+CoreDataProperties.swift */,
+				CFADDC1F1DA95BBC00C30FBF /* Tag+CoreDataProperties.swift */,
+				CFADDC201DA95BBC00C30FBF /* Localization+CoreDataProperties.swift */,
+				CFADDC211DA95BBC00C30FBF /* Photo+CoreDataProperties.swift */,
+				CFADDC221DA95BBC00C30FBF /* Cover+CoreDataProperties.swift */,
+				CFADDC231DA95BBC00C30FBF /* Book+CoreDataProperties.swift */,
+				CFADDC241DA95BBC00C30FBF /* Annotation+CoreDataProperties.swift */,
+				CFADDC251DA95BBC00C30FBF /* Author+CoreDataProperties.swift */,
+				CFADDC261DA95BBC00C30FBF /* BookTag+CoreDataProperties.swift */,
+				CFADDC271DA95BBC00C30FBF /* Pdf+CoreDataProperties.swift */,
 				CFEF8DD31D8AF70B00286442 /* Default-568h@2x.png */,
 				CF309DCC1D8A8E7D0071B086 /* HacerBookSwift3 */,
 				CF309DE11D8A8E7D0071B086 /* HacerBookSwift3Tests */,
@@ -438,39 +438,39 @@
 			files = (
 				CF01A0D21DA2F3A8001CA848 /* NotesTableViewController.swift in Sources */,
 				CF309E231D8AA6DE0071B086 /* Tag+CoreDataClass.swift in Sources */,
-				CF13EB1F1DA4657F00FF5DF0 /* Localization+CoreDataProperties.swift in Sources */,
+				CFADDC291DA95BBC00C30FBF /* Localization+CoreDataProperties.swift in Sources */,
 				CF309E0B1D8AA6DE0071B086 /* Photo+CoreDataClass.swift in Sources */,
 				CF309E0F1D8AA6DE0071B086 /* Cover+CoreDataClass.swift in Sources */,
 				CF309E1F1D8AA6DE0071B086 /* Pdf+CoreDataClass.swift in Sources */,
 				CFAE70141D9FCA1D0021D99F /* PdfViewController.swift in Sources */,
-				CF13EB1D1DA4657F00FF5DF0 /* BookTag+CoreDataProperties.swift in Sources */,
 				CF8CFE9A1DA1AA6D00C4C9A5 /* CoreDataCollectionViewController.swift in Sources */,
+				CFADDC2E1DA95BBC00C30FBF /* Author+CoreDataProperties.swift in Sources */,
 				CF13EB0F1DA4485400FF5DF0 /* Marks.swift in Sources */,
 				CF309DEE1D8A8F830071B086 /* CoreDataStack.swift in Sources */,
-				CF13EB231DA4657F00FF5DF0 /* Pdf+CoreDataProperties.swift in Sources */,
 				CF309E171D8AA6DE0071B086 /* Annotation+CoreDataClass.swift in Sources */,
 				CF309E131D8AA6DE0071B086 /* BookTag+CoreDataClass.swift in Sources */,
 				CFF645921D9076F50028925B /* ResourceFileManager.swift in Sources */,
+				CFADDC2D1DA95BBC00C30FBF /* Annotation+CoreDataProperties.swift in Sources */,
 				CFAE8E381DA598C700506C58 /* NoteViewCollectionViewCell.swift in Sources */,
-				CF13EB1C1DA4657F00FF5DF0 /* Annotation+CoreDataProperties.swift in Sources */,
 				CF309E1B1D8AA6DE0071B086 /* Localization+CoreDataClass.swift in Sources */,
 				CF309DF21D8A8FA30071B086 /* CoreDataTableViewController.swift in Sources */,
 				CF13EB0B1DA42A4400FF5DF0 /* MapViewController.swift in Sources */,
-				CF13EB201DA4657F00FF5DF0 /* Photo+CoreDataProperties.swift in Sources */,
+				CFADDC2B1DA95BBC00C30FBF /* Cover+CoreDataProperties.swift in Sources */,
+				CFADDC301DA95BBC00C30FBF /* Pdf+CoreDataProperties.swift in Sources */,
 				CFAE6FFE1D99A84E0021D99F /* BookViewController.swift in Sources */,
-				CF13EB1B1DA4657F00FF5DF0 /* Tag+CoreDataProperties.swift in Sources */,
-				CF13EB1E1DA4657F00FF5DF0 /* Cover+CoreDataProperties.swift in Sources */,
+				CFADDC2A1DA95BBC00C30FBF /* Photo+CoreDataProperties.swift in Sources */,
 				CFF645981D9077B20028925B /* ErrorHackerBooks.swift in Sources */,
+				CFADDC281DA95BBC00C30FBF /* Tag+CoreDataProperties.swift in Sources */,
 				CF309E2B1D8AA6DF0071B086 /* Book+CoreDataClass.swift in Sources */,
 				CF309DCE1D8A8E7D0071B086 /* AppDelegate.swift in Sources */,
 				CFF645BD1D90932F0028925B /* BookTableViewController.swift in Sources */,
 				CF309E271D8AA6DE0071B086 /* Author+CoreDataClass.swift in Sources */,
 				CFF6459E1D9080790028925B /* JSONProcessing.swift in Sources */,
 				CFAE8E3A1DA59B1F00506C58 /* NotesCollectionViewController.swift in Sources */,
-				CF13EB211DA4657F00FF5DF0 /* Author+CoreDataProperties.swift in Sources */,
 				CF01A0CD1DA2C6C8001CA848 /* NotesViewController.swift in Sources */,
 				CFAE8E331DA5647B00506C58 /* UIImage+Resize.swift in Sources */,
-				CF13EB221DA4657F00FF5DF0 /* Book+CoreDataProperties.swift in Sources */,
+				CFADDC2C1DA95BBC00C30FBF /* Book+CoreDataProperties.swift in Sources */,
+				CFADDC2F1DA95BBC00C30FBF /* BookTag+CoreDataProperties.swift in Sources */,
 				CF309DF71D8A92430071B086 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
